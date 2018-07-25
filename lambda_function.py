@@ -1,15 +1,16 @@
+# @authors Luke Power, Jakir Ashraf, Alex Pettifer for Capgemini
+# @version 25/07/18
+#
+
 from __future__ import print_function
 import boto3
 
-CardTitlePrefix = "Tech Hub"
-
 
 # --------------- Helpers that build all of the responses ----------------------
+# Build a speechlet JSON representation of the title, output text,
+# reprompt text & end of session
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
-    """
-    Build a speechlet JSON representation of the title, output text,
-    reprompt text & end of session
-    """
+
     return {
         'outputSpeech': {
             'type': 'PlainText',
@@ -30,10 +31,9 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
     }
 
 
+# Build the full response JSON from the speechlet response
 def build_response(session_attributes, speechlet_response):
-    """
-    Build the full response JSON from the speechlet response
-    """
+
     return {
         'version': '1.0',
         'sessionAttributes': session_attributes,
@@ -45,15 +45,16 @@ def build_response(session_attributes, speechlet_response):
 
 #
 #                TODO
-# 1) stop it from saying "there are one screen"
-# 2) improve all dialogue
+# 1) fix plural and singular nouns
 #
 #
 
+
+# ===========================
+# Converts plural to singular
+# ===========================
 def sing(string):
-    # ===========================
-    # Converts plural to singular
-    # ===========================
+
     import inflect
     words = string.split(' ')
     last_word = words.pop(len(words) - 1)
@@ -65,33 +66,33 @@ def sing(string):
         return ' '.join(words + [lastWord])
 
 
+# ===========================
+# Converts singular to plural
+# if the count is greater than
+# one.
+# ===========================
 def plu(string, count=2):
-    # ===========================
-    # Converts singular to plural
-    # if the count is greater than
-    # one.
-    # ===========================
+
     import inflect
     p = inflect.engine()
     return p.plural(string, count)
 
 
 # --------------- Functions that control the skill's behavior ------------------
-
-
+# invoked on launch
 def get_welcome_response():
     session_attributes = {}
     card_title = "Hello and welcome"
     speech_output = "Welcome to the Tech Hub. How can I help you?"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
     should_end_session = False
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
 
 
+# invoked on close
 def handle_session_end_request():
     card_title = "Session Ended"
     speech_output = "Have a nice day! "
@@ -100,38 +101,36 @@ def handle_session_end_request():
         card_title, speech_output, None, should_end_session))
 
 
+# explains what the tech hub is
 def explanation():
 
-    # explains what the tech hub is
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "The Tech Hub is a place of innovation. " + "We believe that technology is worth sharing, which is why we explore new ways to use emerging tech. " + "Current projects include developing skills for Alexa and Amazon Deep-lens, as well as using " + "rasberry pies in creative experiments. Tweet, us at hash tag Tech-Hub."
+    speech_text = "The Tech Hub is a place of innovation. " + "We believe that technology is worth sharing, which is why we explore new ways to use emerging tech. " + "Current projects include developing skills for Alexa and Amazon Deep-lens, as well as using " + "rasberry pies in creative experiments. Tweet-us at hash tag Tech-Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me to explain myself"
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 
+# explains what the tech hub skill can do
 def functions():
-
-    # explains what the tech hub skill can do
 
     card_title = "Welcome to the Tech hub"
     speech_text = "Hello. I can tell you about the Tech Hub and what we do here, I can tell you about the facilities available," + "and I can tell you about events scheduled in the Tech Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
+
+# explains what the tech hub skill can do
 def events():
 
-    # explains what the tech hub skill can do
-
     card_title = "events in the tech hub"
-    speech_text = "To manage events for the Tech hub, say cancel, and then ask me what's on the calendar."
+    speech_text = "To manage events for the Tech hub, say close tech hub, and then ask me what's on the calendar."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 
+# explains what the tech hub skill can do
 def facilities():
-
-    # explains what the tech hub skill can do
 
     card_title = "Welcome to the Tech hub"
     speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " + "We have a presentation area that seats 40 and a big telly. We also have a smart football table and our own wifi."
@@ -139,6 +138,7 @@ def facilities():
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 
+# adds items to inventory
 def add_value_to_db(name, quan_to_add, db):
     card_title = "Tech Hub"
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
@@ -158,6 +158,7 @@ def add_value_to_db(name, quan_to_add, db):
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
+#removes item from inventory
 def rem_value_from_db(name, quan_to_rem, db):
     card_title = "Tech Hub"
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
@@ -178,6 +179,7 @@ def rem_value_from_db(name, quan_to_rem, db):
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
+# returns a list of all items in the inventory
 def list_items(db):
     card_title = "List of items in inventory"
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
@@ -187,6 +189,7 @@ def list_items(db):
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
+# returns the amount of an item
 def get_item_quantities(name, db):
     card_title = "List of items in inventory"
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
@@ -214,6 +217,7 @@ def on_session_ended(event, session):
     return build_response('Good bye', True)
 
 
+# identifies which intent is invoked
 def on_intent(intent_request, session, db, dynamodb):
     print("on_intent requestId=" + intent_request['requestId'] + ", sessionId=" + session['sessionId'])
     intent = intent_request['intent']
@@ -277,6 +281,7 @@ def lambda_handler(event, context):
     return output
 
 
+# invoked by launch request
 def on_launch(launch_request, session):
     """ Called when the user launches the skill without specifying what they want """
     print("on_launch requestId=" + launch_request['requestId'] + ", sessionId=" + session['sessionId'])
