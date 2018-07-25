@@ -5,6 +5,8 @@
 from __future__ import print_function
 import boto3
 
+CardTitlePrefix = "Tech Hub"
+
 
 # --------------- Helpers that build all of the responses ----------------------
 # Build a speechlet JSON representation of the title, output text,
