@@ -1,0 +1,212 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "tech hub",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "TechHubExplainedIntent",
+                    "slots": [],
+                    "samples": [
+                        "explain itself",
+                        "what it is",
+                        "what purpose is",
+                        "tell me about itself",
+                        "what are you"
+                    ]
+                },
+                {
+                    "name": "FunctionIntent",
+                    "slots": [],
+                    "samples": [
+                        "what do you know",
+                        "what it can do",
+                        "what do you do",
+                        "What can you do"
+                    ]
+                },
+                {
+                    "name": "FacilitiesIntent",
+                    "slots": [],
+                    "samples": [
+                        "what facilities are available",
+                        "available facilities"
+                    ]
+                },
+                {
+                    "name": "add_value_to_db",
+                    "slots": [
+                        {
+                            "name": "quan_to_add",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "name",
+                            "type": "equipment"
+                        }
+                    ],
+                    "samples": [
+                        "add {quan_to_add} {name} to the tech hub",
+                        "add {quan_to_add} {name} ",
+                        "add {quan_to_add} {name} to the inventory"
+                    ]
+                },
+                {
+                    "name": "rem_value_from_db",
+                    "slots": [
+                        {
+                            "name": "quan_to_rem",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "name",
+                            "type": "equipment"
+                        }
+                    ],
+                    "samples": [
+                        "remove {quan_to_rem} {name} from tech hub",
+                        "remove {quan_to_rem} {name} from inventory",
+                        "remove {quan_to_rem} {name}"
+                    ]
+                },
+                {
+                    "name": "list_items",
+                    "slots": [],
+                    "samples": [
+                        "what is in the tech hub",
+                        "what is there",
+                        "what do we have"
+                    ]
+                },
+                {
+                    "name": "get_item_quantities",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "equipment"
+                        }
+                    ],
+                    "samples": [
+                        "how many {name} are there",
+                        "how many {name} are in the inventory",
+                        "how many {name} are in the tech hub",
+                        "how much {name} do we have",
+                        "how many {name} do we have"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "equipment",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "desks"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keyboards"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "monitors"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chargers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raspberry pies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "brick pies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "screens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mind storms set"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raspberry pie camera"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "brick pie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keyboard"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mouse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "laptop"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "charger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raspberry pie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "screen"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
