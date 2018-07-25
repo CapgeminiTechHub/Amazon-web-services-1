@@ -91,6 +91,7 @@ def get_welcome_response():
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
 
+
 def handle_session_end_request():
     card_title = "Session Ended"
     speech_output = "Have a nice day! "
@@ -101,9 +102,9 @@ def handle_session_end_request():
 
 
 def explanation():
-    """
-    explains what the tech hub is
-    """
+
+    # explains what the tech hub is
+
     card_title = "Welcome to the Tech hub"
     speech_text = "The Tech Hub is a place of innovation. " + "We believe that technology is worth sharing, which is why we explore new ways to use emerging tech. " + "Current projects include developing skills for Alexa and Amazon Deep-lens, as well as using " + "rasberry pies in creative experiments. Tweet, us at hash tag Tech-Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me to explain myself"
@@ -111,9 +112,9 @@ def explanation():
 
 
 def functions():
-    """
-    explains what the tech hub skill can do
-    """
+
+    # explains what the tech hub skill can do
+
     card_title = "Welcome to the Tech hub"
     speech_text = "Hello. I can tell you about the Tech Hub and what we do here, I can tell you about the facilities available," + "and I can tell you about events scheduled in the Tech Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
@@ -121,9 +122,9 @@ def functions():
 
 
 def facilities():
-    """
-    explains what the tech hub skill can do
-    """
+
+    # explains what the tech hub skill can do
+
     card_title = "Welcome to the Tech hub"
     speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " + "We have a presentation area that seats 40 and a big telly. We also have a smart football table and our own wifi."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what facilities are available"
