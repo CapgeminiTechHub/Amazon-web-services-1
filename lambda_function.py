@@ -6,7 +6,7 @@ CardTitlePrefix = "Tech Hub"
 # --------------- Helpers that build all of the responses ----------------------
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     """
-    Build a speechlet JSON representation of the title, output text, 
+    Build a speechlet JSON representation of the title, output text,
     reprompt text & end of session
     """
     return {
@@ -140,6 +140,8 @@ def add_value_to_db(name, quan_to_add, db):
 
 
 def rem_value_from_db(name, quan_to_rem, db):
+    card_title = "Tech Hub"
+    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
     try:
         quantity = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
         quantity = int(quantity['Item']['quantity']['N'])
@@ -147,12 +149,14 @@ def rem_value_from_db(name, quan_to_rem, db):
             db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
-            return "currently %s %s exists" % (quantity - quan_to_rem, plu(name))
+            output = "currently %s %s exists" % (quantity - quan_to_rem, plu(name))
 
         else:
-            return "There are not enough %s to remove that many" % plu(name)
+            output = "There are not enough %s to remove that many" % plu(name)
     except:
-        "there were no %s found" % plu(name)
+        output = "there were no %s found" % plu(name)
+
+    return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
 def list_items(db):
@@ -192,7 +196,7 @@ def on_intent(intent_request, session, db, dynamodb):
     if intent_name == 'add_value_to_db':
         name = sing(intent_request['intent']['slots']['name']['value'])
         quan_to_add = int(intent_request['intent']['slots']['quan_to_add']['value'])
-        outputSpeech = add_value_to_db(name, quan_to_add, dynamodb)
+        return add_value_to_db(name, quan_to_add, dynamodb)
     elif intent_name == "TechHubExplainedIntent":
         return explanation()
     elif intent_name == "FunctionIntent":
@@ -202,12 +206,12 @@ def on_intent(intent_request, session, db, dynamodb):
     elif intent_name == 'rem_value_from_db':
         name = sing(intent_request['intent']['slots']['name']['value'])
         quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
-        outputSpeech = rem_value_from_db(name, quan_to_rem, dynamodb)
+        return rem_value_from_db(name, quan_to_rem, dynamodb)
     elif intent_name == 'list_items':
          return list_items(dynamodb)
     elif intent_name == 'get_item_quantities':
         name = sing(intent_request['intent']['slots']['name']['value'])
-        outputSpeech = get_item_quantities(name, dynamodb)
+        return get_item_quantities(name, dynamodb)
     else:
         outputSpeech = "sorry but I didn't understand the request"
     return build_response(outputSpeech, False)
