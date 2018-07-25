@@ -119,6 +119,15 @@ def functions():
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
+def events():
+
+    # explains what the tech hub skill can do
+
+    card_title = "events in the tech hub"
+    speech_text = "To manage events for the Tech hub, say cancel, and then ask me what's on the calendar."
+    reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+
 
 def facilities():
 
@@ -219,6 +228,8 @@ def on_intent(intent_request, session, db, dynamodb):
         return functions()
     elif intent_name == "FacilitiesIntent":
         return facilities()
+    elif intent_name == "EventsIntent":
+        return events()
     elif intent_name == 'rem_value_from_db':
         name = sing(intent_request['intent']['slots']['name']['value'])
         quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
