@@ -4,7 +4,6 @@ import boto3
 CardTitlePrefix = "Tech Hub"
 
 
-
 # --------------- Helpers that build all of the responses ----------------------
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     """
@@ -57,19 +56,20 @@ def sing(string):
     # ===========================
     import inflect
     words = string.split(' ')
-    lastWord = words.pop(len(words) - 1)
+    last_word = words.pop(len(words) - 1)
     p = inflect.engine()
-    output = p.singular_noun(lastWord)
+    output = p.singular_noun(last_word)
     if output:
         return ' '.join(words + [output])
     else:
         return ' '.join(words + [lastWord])
 
+
 def plu(string, count=2):
     # ===========================
     # Converts singular to plural
-    # if the count is greater tha
-    # n one.
+    # if the count is greater than
+    # one.
     # ===========================
     import inflect
     p = inflect.engine()
@@ -95,7 +95,6 @@ def get_welcome_response():
 def handle_session_end_request():
     card_title = "Session Ended"
     speech_output = "Have a nice day! "
-    # Setting this to true ends the session and exits the skill.
     should_end_session = True
     return build_response({}, build_speechlet_response(
         card_title, speech_output, None, should_end_session))
@@ -140,12 +139,12 @@ def add_value_to_db(name, quan_to_add, db):
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
-        output = "There are now %s %s" % (quantity + quan_to_add, plu(name))
+        output = "There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
     except:
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quan_to_add)}})
-        output = "There are now %s %s" % (quan_to_add, plu(name))
+        output = "There are now %s %s in the inventory" % (quan_to_add, plu(name))
 
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
