@@ -1,8 +1,8 @@
 from __future__ import print_function
+import boto3
 
 CardTitlePrefix = "Tech Hub"
-
-
+\
 # --------------- Helpers that build all of the responses ----------------------
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     """
@@ -27,7 +27,6 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         },
         'shouldEndSession': should_end_session
     }
-
 
 def build_response(session_attributes, speechlet_response):
     """
@@ -63,7 +62,6 @@ def sing(string):
     else:
         return ' '.join(words + [lastWord])
 
-
 def plu(string, count=2):
     # ===========================
     # Converts singular to plural
@@ -89,7 +87,6 @@ def get_welcome_response():
     should_end_session = False
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
-
 
 def handle_session_end_request():
     card_title = "Session Ended"
@@ -159,10 +156,12 @@ def rem_value_from_db(name, quan_to_rem, db):
 
 
 def list_items(db):
+    card_title = "List of items in inventory"
+    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
     output = 'here is what was found in the tech hub: '
     for i in db.scan(TableName='TechHubInventory')['Items']:
         output += ' ' + plu(str(i['name']['S']))
-    return output
+    return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
 def get_item_quantities(name, db):
@@ -205,7 +204,7 @@ def on_intent(intent_request, session, db, dynamodb):
         quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
         outputSpeech = rem_value_from_db(name, quan_to_rem, dynamodb)
     elif intent_name == 'list_items':
-        outputSpeech = list_items(dynamodb)
+         return list_items(dynamodb)
     elif intent_name == 'get_item_quantities':
         name = sing(intent_request['intent']['slots']['name']['value'])
         outputSpeech = get_item_quantities(name, dynamodb)
