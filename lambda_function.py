@@ -125,18 +125,22 @@ def facilities():
 
 
 def add_value_to_db(name, quan_to_add, db):
+    card_title = "Tech Hub"
+    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
     try:
         quantity = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
         quantity = int(quantity['Item']['quantity']['N'])
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
-        return "There are now %s %s" % (quantity + quan_to_add, plu(name))
+        output = "There are now %s %s" % (quantity + quan_to_add, plu(name))
     except:
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quan_to_add)}})
-        return "There are now %s %s" % (quan_to_add, plu(name))
+        output = "There are now %s %s" % (quan_to_add, plu(name))
+
+    return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
 def rem_value_from_db(name, quan_to_rem, db):
@@ -169,11 +173,17 @@ def list_items(db):
 
 
 def get_item_quantities(name, db):
-    output = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
+    card_title = "List of items in inventory"
+    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
+
     try:
-        return "there are %s %s in the inventory" % (output['Item']['quantity']['N'], plu(name))
+        output = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
     except:
-        return "there are no %s in the inventory" % plu(name)
+        output = "there are no %s in the inventory" % plu(name)
+
+    output_text = "there are %s %s in the inventory" % (output['Item']['quantity']['N'], plu(name))
+
+    return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
 
 # --------------- Events ------------------
