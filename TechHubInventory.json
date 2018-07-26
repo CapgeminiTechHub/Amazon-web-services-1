@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "tech hub",
+            "invocationName": "helper",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -17,17 +17,19 @@
                 },
                 {
                     "name": "AMAZON.StopIntent",
-                    "samples": []
+                    "samples": [
+                        "close tech hub"
+                    ]
                 },
                 {
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
-                        "explain itself",
-                        "what it is",
-                        "what purpose is",
-                        "tell me about itself",
-                        "what are you"
+                        "about tech hub",
+                        "what is tech hub",
+                        "explain what tech hub",
+                        "tell me about the tech hub",
+                        "what it is"
                     ]
                 },
                 {
@@ -44,6 +46,10 @@
                     "name": "FacilitiesIntent",
                     "slots": [],
                     "samples": [
+                        "what kit",
+                        "what facilities i can use",
+                        "what kit is available",
+                        "about facilities",
                         "what facilities are available",
                         "available facilities"
                     ]
@@ -61,7 +67,7 @@
                         }
                     ],
                     "samples": [
-                        "add {quan_to_add} {name} to the tech hub",
+                        "add {quan_to_add} {name} to tech hub",
                         "add {quan_to_add} {name} ",
                         "add {quan_to_add} {name} to the inventory"
                     ]
@@ -108,52 +114,50 @@
                         "how much {name} do we have",
                         "how many {name} do we have"
                     ]
+                },
+                {
+                    "name": "EventsIntent",
+                    "slots": [],
+                    "samples": [
+                        "what events",
+                        "about events"
+                    ]
+                },
+                {
+                    "name": "InvIntent",
+                    "slots": [],
+                    "samples": [
+                        "i'm finished with the inventory",
+                        "shut the inventory",
+                        "close down inventory",
+                        "close inventory"
+                    ]
                 }
             ],
             "types": [
                 {
                     "name": "equipment",
                     "values": [
-                        {
-                            "name": {
-                                "value": "desks"
-                            }
-                        },
+                      
                         {
                             "name": {
                                 "value": "mice"
                             }
                         },
+                     
                         {
                             "name": {
-                                "value": "keyboards"
+                                "value": "monitor"
                             }
                         },
                         {
                             "name": {
-                                "value": "monitors"
+                                "value": "charger"
                             }
                         },
-                        {
-                            "name": {
-                                "value": "chargers"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "raspberry pies"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "brick pies"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "screens"
-                            }
-                        },
+                     
+                     
+              
                         {
                             "name": {
                                 "value": "mind storms set"
