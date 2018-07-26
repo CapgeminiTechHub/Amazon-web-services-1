@@ -164,9 +164,11 @@ def rem_value_from_db(name, quan_to_rem, db):
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
             if quantity - quan_to_rem > 1 :
-                output = "currently %s %s exists" % (quantity - quan_to_rem, plu(name))
+                output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+            elif quantity - quan_to_rem == 1:
+                output = "currently there is %s %s" % (quantity - quan_to_rem, sing(name))
             else:
-                output = "currently %s %s exists" % (quantity - quan_to_rem, sing(name))
+                output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
         else:
             output = "There are not enough %s to remove that many" % plu(name)
     except:
