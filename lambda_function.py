@@ -209,6 +209,14 @@ def get_item_quantities(name, db):
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
+   def close_inv():
+    card_title = "finished with inventory"
+    speech_text = "Now closing inventory management. If you want me to do anything else, say my name again."
+    reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+ 
+
 # --------------- Events ------------------
 
 def on_session_started(session_started_request, session):
@@ -248,6 +256,8 @@ def on_intent(intent_request, session, db, dynamodb):
     elif intent_name == 'get_item_quantities':
         name = sing(intent_request['intent']['slots']['name']['value'])
         return get_item_quantities(name, dynamodb)
+   elif intent_name == "InvIntent":
+        return close_inv()
     else:
         outputSpeech = "sorry but I didn't understand the request"
     return build_response(outputSpeech, False)
