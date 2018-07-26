@@ -209,7 +209,7 @@ def get_item_quantities(name, db):
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
-   def close_inv():
+def close_inv():
     card_title = "finished with inventory"
     speech_text = "Now closing inventory management. If you want me to do anything else, say my name again."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
