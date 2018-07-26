@@ -142,12 +142,18 @@ def add_value_to_db(name, quan_to_add, db):
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
-        output = "There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+        if quantity + quan_to_add > 1:
+            output = "There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+        else:
+            output = "There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
     except:
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quan_to_add)}})
-        output = "There are now %s %s in the inventory" % (quan_to_add, plu(name))
+        if quan_to_add + quantity > 1:
+            output = "There are now %s %s in the inventory" % (quan_to_add, plu(name))
+        else:
+            output = "There is now %s %s in the inventory" % (quan_to_add, plu(name))
 
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
