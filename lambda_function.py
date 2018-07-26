@@ -1,12 +1,10 @@
 # @authors Luke Power, Jakir Ashraf, Alex Pettifer for Capgemini
 # @version 25/07/18
-#
 
 from __future__ import print_function
 import boto3
 
 CardTitlePrefix = "Tech Hub"
-
 
 # --------------- Helpers that build all of the responses ----------------------
 # Build a speechlet JSON representation of the title, output text,
@@ -44,14 +42,9 @@ def build_response(session_attributes, speechlet_response):
 
 
 # --------------- Functions that control the skill's behavior ------------------
-
-#
 #                TODO
 # 1) fix plural and singular nouns
 #
-#
-
-
 # ===========================
 # Converts plural to singular
 # ===========================
@@ -106,11 +99,10 @@ def handle_session_end_request():
 # explains what the tech hub is
 def explanation():
 
-
     card_title = "Welcome to the Tech hub"
     speech_text = "The Tech Hub is a place of innovation. " + "We believe that technology is worth sharing, which is why we explore new ways to use emerging tech. " + "Current projects include developing skills for Alexa and Amazon Deep-lens, as well as using " + "rasberry pies in creative experiments. Tweet-us at hash tag Tech-Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me to explain myself"
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
 # explains what the tech hub skill can do
@@ -119,7 +111,7 @@ def functions():
     card_title = "Welcome to the Tech hub"
     speech_text = "Hello. I can tell you about the Tech Hub and what we do here, I can tell you about the facilities available," + "and I can tell you about events scheduled in the Tech Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
 # explains what the tech hub skill can do
@@ -128,7 +120,7 @@ def events():
     card_title = "events in the tech hub"
     speech_text = "To manage events for the Tech hub, say close tech hub, and then ask me what's on the calendar."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
 # explains what the tech hub skill can do
@@ -137,7 +129,7 @@ def facilities():
     card_title = "Welcome to the Tech hub"
     speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " + "We have a presentation area that seats 40 and a big telly. We also have a smart football table and our own wifi."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what facilities are available"
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
 # adds items to inventory
