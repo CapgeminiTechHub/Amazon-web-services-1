@@ -1,0 +1,13 @@
+   def close_inv():
+
+    card_title = "finished with inventory"
+    speech_text = "Now closing inventory management. If you want me to do anything else, say my name again."
+    reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+   
+   
+   
+   
+   elif intent_name == "InvIntent":
+        return close_inv()
