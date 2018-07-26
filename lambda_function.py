@@ -51,9 +51,9 @@ def build_response(session_attributes, speechlet_response):
 def sing(string):
 
     import inflect
+    p = inflect.engine()
     words = string.split(' ')
     last_word = words.pop(len(words) - 1)
-    p = inflect.engine()
     output = p.singular_noun(last_word)
     if output:
         return ' '.join(words + [output])
@@ -163,8 +163,10 @@ def rem_value_from_db(name, quan_to_rem, db):
             db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
-            output = "currently %s %s exists" % (quantity - quan_to_rem, plu(name))
-
+            if quantity - quan_to_rem > 1 :
+                output = "currently %s %s exists" % (quantity - quan_to_rem, plu(name))
+            else:
+                output = "currently %s %s exists" % (quantity - quan_to_rem, sing(name))
         else:
             output = "There are not enough %s to remove that many" % plu(name)
     except:
@@ -187,6 +189,7 @@ def list_items(db):
 def get_item_quantities(name, db):
     card_title = "List of items in inventory"
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
+    output_text = ""
 
     try:
         output = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
@@ -196,7 +199,6 @@ def get_item_quantities(name, db):
     output_text = "there are %s %s in the inventory" % (output['Item']['quantity']['N'], plu(name))
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
-
 
 # --------------- Events ------------------
 
