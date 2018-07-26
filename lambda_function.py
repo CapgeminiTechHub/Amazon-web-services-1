@@ -58,7 +58,7 @@ def sing(string):
     if output:
         return ' '.join(words + [output])
     else:
-        return ' '.join(words + [lastWord])
+        return ' '.join(words + [last_word])
 
 
 # ===========================
@@ -169,7 +169,7 @@ def rem_value_from_db(name, quan_to_rem, db):
             db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
-            if quantity - quan_to_rem > 1 :
+            if quantity - quan_to_rem > 1:
                 output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
             elif quantity - quan_to_rem == 1:
                 output = "currently there is %s %s" % (quantity - quan_to_rem, sing(name))
@@ -177,8 +177,9 @@ def rem_value_from_db(name, quan_to_rem, db):
                 output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
         else:
             output = "There are not enough %s to remove that many" % plu(name)
-    except:
-        output = "there were no %s found" % plu(name)
+    except Exception as e:
+        # output = "there were no %s found" % plu(name)
+        output = e
 
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
