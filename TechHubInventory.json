@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "helper",
+            "invocationName": "tech hub",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -17,25 +17,27 @@
                 },
                 {
                     "name": "AMAZON.StopIntent",
-                    "samples": [
-                        "close tech hub"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
-                        "about tech hub",
-                        "what is tech hub",
-                        "explain what tech hub",
-                        "tell me about the tech hub",
-                        "what it is"
+                        "what it is",
+                        "what is the tech hub",
+                        "what is it",
+                        "explain itself",
+                        "what purpose is",
+                        "tell me about itself",
+                        "what are you"
                     ]
                 },
                 {
                     "name": "FunctionIntent",
                     "slots": [],
                     "samples": [
+                        "tell me what you can do",
+                        "what can i do",
                         "what do you know",
                         "what it can do",
                         "what do you do",
@@ -46,10 +48,6 @@
                     "name": "FacilitiesIntent",
                     "slots": [],
                     "samples": [
-                        "what kit",
-                        "what facilities i can use",
-                        "what kit is available",
-                        "about facilities",
                         "what facilities are available",
                         "available facilities"
                     ]
@@ -59,15 +57,23 @@
                     "slots": [
                         {
                             "name": "quan_to_add",
-                            "type": "AMAZON.NUMBER"
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{quan_to_add}",
+                                "{quan_to_add} {name}"
+                            ]
                         },
                         {
                             "name": "name",
-                            "type": "equipment"
+                            "type": "equipment",
+                            "samples": [
+                                "{quan_to_add} {name}",
+                                "{name}"
+                            ]
                         }
                     ],
                     "samples": [
-                        "add {quan_to_add} {name} to tech hub",
+                        "add {quan_to_add} {name} to the tech hub",
                         "add {quan_to_add} {name} ",
                         "add {quan_to_add} {name} to the inventory"
                     ]
@@ -77,11 +83,19 @@
                     "slots": [
                         {
                             "name": "quan_to_rem",
-                            "type": "AMAZON.NUMBER"
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{quan_to_rem} {name}",
+                                "{quan_to_rem}"
+                            ]
                         },
                         {
                             "name": "name",
-                            "type": "equipment"
+                            "type": "equipment",
+                            "samples": [
+                                "{name}",
+                                "{quan_to_rem} {name}"
+                            ]
                         }
                     ],
                     "samples": [
@@ -116,48 +130,66 @@
                     ]
                 },
                 {
-                    "name": "EventsIntent",
-                    "slots": [],
-                    "samples": [
-                        "what events",
-                        "about events"
-                    ]
+                    "name": "AMAZON.ReadAction<object@Calendar>",
+                    "samples": []
                 },
                 {
-                    "name": "InvIntent",
-                    "slots": [],
-                    "samples": [
-                        "i'm finished with the inventory",
-                        "shut the inventory",
-                        "close down inventory",
-                        "close inventory"
-                    ]
+                    "name": "AMAZON.SearchAction<object@Calendar>",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
                 }
             ],
             "types": [
                 {
                     "name": "equipment",
                     "values": [
-                      
+                        {
+                            "name": {
+                                "value": "desks"
+                            }
+                        },
                         {
                             "name": {
                                 "value": "mice"
                             }
                         },
-                     
                         {
                             "name": {
-                                "value": "monitor"
+                                "value": "keyboards"
                             }
                         },
                         {
                             "name": {
-                                "value": "charger"
+                                "value": "monitors"
                             }
                         },
-                     
-                     
-              
+                        {
+                            "name": {
+                                "value": "chargers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raspberry pies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "brick pies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "screens"
+                            }
+                        },
                         {
                             "name": {
                                 "value": "mind storms set"
@@ -211,6 +243,142 @@
                     ]
                 }
             ]
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "add_value_to_db",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "quan_to_add",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.646783656891.821696255611",
+                                "elicitation": "Elicit.Slot.646783656891.821696255611"
+                            }
+                        },
+                        {
+                            "name": "name",
+                            "type": "equipment",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.646783656891.1136926198101",
+                                "elicitation": "Elicit.Slot.646783656891.1136926198101"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "rem_value_from_db",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "quan_to_rem",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.304775896350.296768307666",
+                                "elicitation": "Elicit.Slot.304775896350.296768307666"
+                            }
+                        },
+                        {
+                            "name": "name",
+                            "type": "equipment",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.304775896350.1264400668200",
+                                "elicitation": "Elicit.Slot.304775896350.1264400668200"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Slot.646783656891.821696255611",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to add {quan_to_add} {name} ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.646783656891.821696255611",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many would you like to add ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.646783656891.1136926198101",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What would you like to add ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.646783656891.1136926198101",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to add {quan_to_add} {name}"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to add {name}"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.304775896350.296768307666",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many would you like to remove ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.304775896350.296768307666",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to remove {quan_to_rem} {name}"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.304775896350.1264400668200",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What would you like to remove ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.304775896350.1264400668200",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to remove {quan_to_rem} {name}"
+                    }
+                ]
+            }
+        ]
     }
 }
