@@ -23,8 +23,8 @@
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
+                        "about the",
                         "what it is",
-                        "what is the tech hub",
                         "what is it",
                         "explain itself",
                         "what purpose is",
@@ -144,6 +144,16 @@
                 {
                     "name": "AMAZON.YesIntent",
                     "samples": []
+                },
+                {
+                    "name": "InvIntent",
+                    "slots": [],
+                    "samples": [
+                        "lock the inventory",
+                        "shut down the inventory",
+                        "close inventory",
+                        "i'm finished with the inventory"
+                    ]
                 }
             ],
             "types": [
