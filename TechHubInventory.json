@@ -23,6 +23,12 @@
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
+                        "who are you ",
+                        "what goes on in this room",
+                        "what is this rooom",
+                        "what is this place",
+                        "explain what ",
+                        "what is the",
                         "about the",
                         "what it is",
                         "what is it",
@@ -48,6 +54,13 @@
                     "name": "FacilitiesIntent",
                     "slots": [],
                     "samples": [
+                        "explain equipment",
+                        "what equipment",
+                        "about equipment",
+                        "what equipment do you have",
+                        "what kit is there",
+                        "about kit",
+                        "about facilities",
                         "what facilities are available",
                         "available facilities"
                     ]
