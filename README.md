@@ -1,11 +1,11 @@
 # Amazon Alexa - Tech Hub Skill
 
-## Contents
-## Overview
-## Explain Tech Hub
-## Functions
-## Facilities
-## Inventory
+### Contents
+### Overview
+### Explain Tech Hub
+### Functions
+### Facilities
+### Inventory
 
 
 # Overview
