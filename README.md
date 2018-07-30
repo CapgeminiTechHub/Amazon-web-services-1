@@ -1,6 +1,6 @@
 # Amazon Alexa - Tech Hub Skill
 
-### Contents
+# Contents
 ### Overview
 ### Explain Tech Hub
 ### Functions
