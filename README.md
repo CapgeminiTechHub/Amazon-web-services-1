@@ -35,20 +35,42 @@ Asking questions such as:
 - "What can you do?"
 - "What do you do"
 
-Will prompt Alexa to respond with the list of actions she can perform
+Will prompt Alexa to respond with the list of actions she can perform.
 
 # Facilities
 
 Asking questions such as:
 
+- "What equipment do you have"
+- "What facilities are available?"
+- "What kit is available?"
+
+These questions and similar questions will cause Alexa to tell the user about the facilities available i.e number of computers in the area etc.
 
 # Inventory
 
+The Invetory keeps track of the quantity of various items in the tech hub. Users can add/remove and find out the number of an item currently in the tech hub.
+
 ## Viewing Inventory
 
+This command can be invoked by saying the following phrases:
+
+- "How many [item] do we have?"
+- "How many [item] are in the inventory?"
 
 ## Adding Item to Inventory
 
+This command can be invoked by saying the following phrases:
+
+- "Add [quantity] [item]"
+- "Add [quantity] [item] to the tech hub" 
+- "Add [quantity] [item] to the Inventory"
 
 ## Removing Item from Inventory
+
+This command can be invoked by saying the following phrases:
+
+- "Remove [quantity] [item]"
+- "Remove [quantity] [item] from the tech hub" 
+- "Remove [quantity] [item] from the Inventory"
 
