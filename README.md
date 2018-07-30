@@ -49,7 +49,7 @@ These questions and similar questions will cause Alexa to tell the user about th
 
 # Inventory
 
-The Invetory keeps track of the quantity of various items in the tech hub. Users can add/remove and find out the number of an item currently in the tech hub.
+The Inventory keeps track of the quantity of various items in the tech hub. Users can add/remove and find out the number of an item currently in the tech hub.
 
 ## Viewing Inventory
 
