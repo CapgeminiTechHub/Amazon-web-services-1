@@ -9,6 +9,7 @@
 
 
 # Overview
+
 The Tech Hub skill allows users to walk into the @Phoenix Tech Hub at Capgemini and answer users queries. 
 Examples of the queries the Tech Hub skill can answer include the following:
 
@@ -19,9 +20,27 @@ Examples of the queries the Tech Hub skill can answer include the following:
 
 # Explain Tech Hub
 
+Asking questions such as:
+
+- "Who are you?"
+- "What goes on in this room?"
+- "What is this place?"
+
+These questions and similar questions will cause Alexa to respond by explaining the purpose of the tech hub.
+
 # Functions
 
+Asking questions such as:
+
+- "What can you do?"
+- "What do you do"
+
+Will prompt Alexa to respond with the list of actions she can perform
+
 # Facilities
+
+Asking questions such as:
+
 
 # Inventory
 
