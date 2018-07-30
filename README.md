@@ -26,8 +26,10 @@ Examples of the queries the Tech Hub skill can answer include the following:
 # Inventory
 
 ## Viewing Inventory
+
+
 ## Adding Item to Inventory
+
+
 ## Removing Item from Inventory
 
-
-For code to develop amazon alexa skills and more.
