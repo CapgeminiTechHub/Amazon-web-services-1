@@ -12,7 +12,7 @@ We developed some initial intents separately, and then combined them into a sing
 From here we used a personal git hub repository to make sure the most up to date, working version of the code was available.
 
 We initially developed intents separately because Luke was using java 8 and Jakir was using python. 
-Python was decided upon as a common language because of its easy of learning. Also there was a lot more support for python alexa skills.
+Python was decided upon as a common language because of its ease of learning. Also there was a lot more support for python alexa skills.
 
 
 # Meeting on 26/07/2018
@@ -24,7 +24,7 @@ At this point we had  a working prototype. We discussed 3 separate routes to go 
 
 1)	Use Tech Hub as the invocation name. This has the advantage that it doesn’t require using a secondary name for invocation such as assistant or helper. But there is the downside that it doesn’t flow well syntactically if the invocation name has to be used before the intent utterance. IE ‘ask the tech hub to tell me about the tech hub’
 Solution: upon further investigation, invocation name can be spoke after intent utterance. IE ‘tell me about the Tech Hub’
-We decided that this was the most intuitive of the three solutions and so continued down this route.
+We decided that this was the most intuitive of the three solutions and so continued down this route, however we only found limited success upon testing this solution.
 
 
 2)	Indirectly invoke the skill IE ‘tell me about facilities’ Then, as long as the skill includes a CanFulfillIntentRequest SPI, the Alexa works out which skill is being invoked. However, this was only available in US locals at the time of building.  
@@ -37,11 +37,14 @@ We concluded to follow the first solution, and decided to work through the desig
 
 # Meeting on 30/07/2018
 
-In this meeting, we decided to change the invocation to 'Phoenix'
+We used an actual Alexa device  to test out intents. The majority of the utterances we tested were successful.
+However, as we were using the alexa device, we felt that our intents did not 'flow' as naturally as human speech. We were having to say the invocation name 'tech hub' before saying each utterance. Otherwise the utterance was not always recognised.
 
-After realising using Tech Hub as an invocation name led to problems, such as clashing intents with the invocation name, we changed the invocation name to 'Phoenix'.
+By using 'Tech Hub' as the invocation name, questions such as 'tell me about the tech hub' meant that the only words to be used as an uttterance were 'about' and 'the'. This was not a strong enough utterance for Alexa to understand which intent was supposed to be invoked.
 
-Moreover, we performed tests on the intents using an actual Alexa device. The majority of the intents we tested were successful.
-Our plan now is to fix to non-working intents. Also as we were using the alexa device, we realised our intents did not 'flow' as naturally as human speech. Thus we now planning on adding more utterances and keep sessions open to allow a more conversational experience.
+Testing with a different invocation name such as 'helper' gave us a higher sucess rate. As a result of this testing, we had a discussion and concluded to change the invocation to 'Phoenix'.
+
+We now planning on adding more utterances and keeping the session open to make the experience wit the skill feel more conversational.
+
 
 
