@@ -2,10 +2,11 @@
 
 # Contents
 #### 0. Overview
-#### 1. Explain Tech Hub
-#### 2. Functions
-#### 3. Facilities
-#### 4. Inventory
+#### 1. Opening the skill
+#### 2. Explain Tech Hub
+#### 3. Functions
+#### 4. Facilities
+#### 5. Inventory
 
 
 # Overview
@@ -18,6 +19,17 @@ Examples of the queries the Tech Hub skill can answer include the following:
 - Tells us about the facilities available in the Tech Hub
 - Tell us about the inventories available in the Tech Hub
 
+
+# Opening the skill
+
+The invocation name for the Tech hub skill is 'Phoenix'.
+Saying phrases such as:
+
+- "Open Phoenix"
+- "[do something] from Phoenix"
+
+will open the skill and perform the action you asked.
+
 # Explain Tech Hub
 
 Asking questions such as:
@@ -28,6 +40,7 @@ Asking questions such as:
 
 These questions and similar questions will cause Alexa to respond by explaining the purpose of the tech hub.
 
+
 # Functions
 
 Asking questions such as:
@@ -36,6 +49,7 @@ Asking questions such as:
 - "What do you do"
 
 Will prompt Alexa to respond with the list of actions she can perform.
+
 
 # Facilities
 
@@ -46,6 +60,7 @@ Asking questions such as:
 - "What kit is available?"
 
 These questions and similar questions will cause Alexa to tell the user about the facilities available i.e number of computers in the area etc.
+
 
 # Inventory
 
