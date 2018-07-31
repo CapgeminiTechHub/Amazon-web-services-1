@@ -34,3 +34,10 @@ We decided that this was the most intuitive of the three solutions and so contin
 
 We concluded to follow the first solution, and decided to work through the design process found at https://developer.amazon.com/designing-for-voice/design-process/
 
+
+# Meeting on 30/07/2018
+
+In this meeting, we decided to change the invocation to 'Phoenix'
+
+After realising using Tech Hub as an invocation name led to problems, such as clashing intents with the invocation name, we changed the invocation name to 'Phoenix'.
+
