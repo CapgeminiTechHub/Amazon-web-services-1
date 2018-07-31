@@ -27,6 +27,7 @@ The invocation name for the Tech hub skill is 'Phoenix'.
 Saying phrases such as:
 
 - "Open Phoenix"
+- "Ask Phoenix"
 - "[do something] from Phoenix"
 
 will open the skill and perform the action you asked.
