@@ -41,3 +41,7 @@ In this meeting, we decided to change the invocation to 'Phoenix'
 
 After realising using Tech Hub as an invocation name led to problems, such as clashing intents with the invocation name, we changed the invocation name to 'Phoenix'.
 
+Moreover, we performed tests on the intents using an actual Alexa device. The majority of the intents we tested were successful.
+Our plan now is to fix to non-working intents. Also as we were using the alexa device, we realised our intents did not 'flow' as naturally as human speech. Thus we now planning on adding more utterances and keep sessions open to allow a more conversational experienc.
+
+
