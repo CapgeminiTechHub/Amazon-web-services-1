@@ -92,3 +92,8 @@ This command can be invoked by saying the following phrases:
 - "Remove [quantity] [item] from the tech hub" 
 - "Remove [quantity] [item] from the Inventory"
 
+## Listing All Items in Inventory
+
+- "What is in the inventory"
+- "What do we have"
+
