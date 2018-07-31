@@ -1,11 +1,9 @@
-#### Introduction
+# Introduction
 
 The Tech Hub Alexa skill was initially built by Alex Pettifer, Jakir Ashraf and Luke Power and then developed more by Jakir and Luke. This read me outlines our development process, and attempts to justify the design of the skill. 
 We began work for the skill on the 16th July 2018. For the first week we messed around with the technology, getting an idea of how skills are built. We developed some initial intents separately, and then combined them into a single python file. From here we used a personal git hub repository to make sure the most up to date, working version of the code was available. We initially developed intents separately because Luke was using java 8 and Jakir was using python. Python was decided upon as a common language because of its easy of learning. Also there was a lot more support for python alexa skills.
 
-##### Introduction
-
-##### Meeting on 26/07/2018
+# Meeting on 26/07/2018
 This was our first major discussion about the use of the skill. At this point we had  a working prototype. We discussed 3 separate routes to go down to make user interaction easier
 1)	Use Tech Hub as the invocation name. This has the advantage that it doesn’t require using a secondary name for invocation such as assistant or helper. But there is the downside that it doesn’t flow well syntactically if the invocation name has to be used before the intent utterance. IE ‘ask the tech hub to tell me about the tech hub’
 Solution: upon further investigation, invocation name can be spoke after intent utterance. IE ‘tell me about the Tech Hub’
