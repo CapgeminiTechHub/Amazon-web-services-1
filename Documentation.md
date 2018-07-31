@@ -1,15 +1,18 @@
 # Introduction
 
-The Tech Hub Alexa skill was initially built by Alex Pettifer, Jakir Ashraf and Luke Power and then developed more by Jakir and Luke. 
+The Tech Hub Alexa skill was initially built by Alex Pettifer, Jakir Ashraf and Luke Power 
+and then developed more by Jakir and Luke. 
 
 This read me outlines our development process, and attempts to justify the design of the skill. 
 
 We began work for the skill on the 16th July 2018. 
-For the first week we messed around with the technology, getting an idea of how skills are built. We developed some initial intents separately, and then combined them into a single python file. 
+For the first week we messed around with the technology, getting an idea of how skills are built.
+We developed some initial intents separately, and then combined them into a single python file. 
 
 From here we used a personal git hub repository to make sure the most up to date, working version of the code was available.
 
-We initially developed intents separately because Luke was using java 8 and Jakir was using python. Python was decided upon as a common language because of its easy of learning. Also there was a lot more support for python alexa skills.
+We initially developed intents separately because Luke was using java 8 and Jakir was using python. 
+Python was decided upon as a common language because of its easy of learning. Also there was a lot more support for python alexa skills.
 
 
 # Meeting on 26/07/2018
