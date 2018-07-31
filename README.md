@@ -12,6 +12,7 @@
 # Overview
 
 The Tech Hub skill allows users to walk into the @Phoenix Tech Hub at Capgemini and answer users queries. 
+
 Examples of the queries the Tech Hub skill can answer include the following:
 
 - Tells us what the Tech Hub is
