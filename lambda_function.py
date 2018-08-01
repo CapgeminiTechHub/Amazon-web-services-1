@@ -109,18 +109,42 @@ def explanation():
 def functions():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "Hello. I can tell you about the Tech Hub and what we do here. I can tell you about the facilities available." + " And I can tell you about events scheduled in the Tech Hub."
+    speech_text = "Hello. I can tell you about the Tech Hub and what we do here. I can tell you about the facilities available." + " And I can tell you about events scheduled in the Tech Hub. Say other options to hear more."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+
+# explains what the tech hub skill can do
+def whoCanUseThisPlace():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "The tech hub is open to everyone. View the tech hub calendar on Outlook to see if events are happening here."
+    reprompt_text = "I'm sorry - I didn't understand. Please try again "
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+# room bookings
+def howDoIBookThisRoom():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "You can book this room and others using the outlook calendar"
+    reprompt_text = "I'm sorry - I didn't understand. Please try again "
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+# opening/closing times
+def openCloseTimes():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "The tech hub is open from nine till five"
+    reprompt_text = "I'm sorry - I didn't understand. Please try again "
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
 # explains what the tech hub skill can do
 def events():
 
     card_title = "events in the tech hub"
-    speech_text = "To manage events for the Tech hub, say close tech hub, and then ask me what's on the calendar."
+    speech_text = "To manage events for the Tech hub, then ask me what's on the calendar."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 
 # explains what the tech hub skill can do
@@ -233,12 +257,18 @@ def on_intent(intent_request, session, db, dynamodb):
         return add_value_to_db(name, quan_to_add, dynamodb)
     elif intent_name == "TechHubExplainedIntent":
         return explanation()
-    elif intent_name == "AMAZON.HelpIntent":
+    elif intent_name == "AMAZON.HelpIntent" | intent_name == "AMAZON.FallbackIntent":
         return functions()
     elif intent_name == "FacilitiesIntent":
         return facilities()
     elif intent_name == "EventsIntent":
         return events()
+    elif intent_name == "WhenDoesThisPlaceOpenClose":
+        return openCloseTimes()
+    elif intent_name == "HowDoIBookThisRoom":
+        return howDoIBookThisRoom()
+    elif intent_name == "CanAnyoneUseThisPlace":
+        return whoCanUseThisPlace()
     elif intent_name == 'rem_value_from_db':
         name = sing(intent_request['intent']['slots']['name']['value'])
         quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
