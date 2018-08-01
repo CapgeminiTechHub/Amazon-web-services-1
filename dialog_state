@@ -1,10 +1,10 @@
 # adds items to inventory
 def add_value_to_db(event, name, quan_to_add, db):
 
-    dialog_state = event['request']['dialogSate']
+    dialog_state = event['request']['dialogState']
     # confirm_stat = event['request']['confirmationStatus']
 
-    if dialog_state in ("STARTED", "IN_PROGRESS"):
+    if dialog_state != 'COMPLETED':
         return continue_dialog()
 
     else:
@@ -36,16 +36,45 @@ def continue_dialog():
 
     message = {}
     message['shouldEndSession'] = False
-    message['directives'] = [{'type': 'dialog.Delegate'}]
+    message['directives'] = [{'type': 'Dialog.Delegate'}]
     #message['directives'] = [{'type': 'dialog.ConfirmIntent'}]
     return build_response(message)
+
     
     
     
     
     
-    
-      if intent_name == 'add_value_to_db':
+def on_intent(event, intent_request, session, db, dynamodb):
+    print("on_intent requestId=" + intent_request['requestId'] + ", sessionId=" + session['sessionId'])
+    intent = intent_request['intent']
+    intent_name = intent_request['intent']['name']
+    if intent_name == 'add_value_to_db':
         name = sing(intent_request['intent']['slots']['name']['value'])
         quan_to_add = int(intent_request['intent']['slots']['quan_to_add']['value'])
         return add_value_to_db(event, name, quan_to_add, dynamodb)
+    elif intent_name == "TechHubExplainedIntent":
+        return explanation()
+    elif intent_name == "FunctionIntent":
+        return functions()
+    elif intent_name == "FacilitiesIntent":
+        return facilities()
+    elif intent_name == "EventsIntent":
+        return events()
+    elif intent_name == 'rem_value_from_db':
+        name = sing(intent_request['intent']['slots']['name']['value'])
+        quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
+        return rem_value_from_db(name, quan_to_rem, dynamodb)
+    elif intent_name == 'list_items':
+        return list_items(dynamodb)
+    elif intent_name == 'get_item_quantities':
+        name = sing(intent_request['intent']['slots']['name']['value'])
+        return get_item_quantities(name, dynamodb)
+    else:
+        output = "I didn't understand the request"
+        return build_response(output, False)
+        
+        
+        // in lamdba_handler
+ elif event['request']['type'] == "IntentRequest":
+        output = on_intent(event, event['request'], event['session'], db, dynamodb)
