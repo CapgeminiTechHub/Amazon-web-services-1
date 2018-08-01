@@ -209,15 +209,15 @@ def get_item_quantities(name, db):
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
-# --------------- Events ------------------
 
+# --------------- Events ------------------
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
     print(
         "on_session_started requestId=" + session_started_request['requestId'] + ", sessionId=" + session['sessionId'])
 
 
-def on_session_ended(event, session):
+def on_session_ended(session_ended_request, session):
     print("on_session_ended requestId=" + session_ended_request['requestId'] + ", sessionId=" + session['sessionId'])
     return build_response('Good bye', True)
 
