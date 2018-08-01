@@ -78,7 +78,7 @@ def plu(string, count=2):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Hello and welcome"
-    speech_output = "Welcome to the Tech Hub. How can I help you?"
+    speech_output = "Hello. Welcome to the Tech Hub. Say Help if you want to know what I can do"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
@@ -109,7 +109,7 @@ def explanation():
 def functions():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "Hello. I can tell you about the Tech Hub and what we do here, I can tell you about the facilities available," + "and I can tell you about events scheduled in the Tech Hub."
+    speech_text = "Hello. I can tell you about the Tech Hub and what we do here. I can tell you about the facilities available." + "and I can tell you about events scheduled in the Tech Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
@@ -190,7 +190,7 @@ def list_items(db):
     reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
     output = 'here is what was found in the tech hub: '
     for i in db.scan(TableName='TechHubInventory')['Items']:
-        output += ' ' + plu(str(i['name']['S']))
+        output += ' ' + plu(str(i['name']['S'])) + ','
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
@@ -209,15 +209,15 @@ def get_item_quantities(name, db):
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
-
 # --------------- Events ------------------
+
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
     print(
         "on_session_started requestId=" + session_started_request['requestId'] + ", sessionId=" + session['sessionId'])
 
 
-def on_session_ended(session_ended_request, session):
+def on_session_ended(event, session):
     print("on_session_ended requestId=" + session_ended_request['requestId'] + ", sessionId=" + session['sessionId'])
     return build_response('Good bye', True)
 
@@ -233,7 +233,7 @@ def on_intent(intent_request, session, db, dynamodb):
         return add_value_to_db(name, quan_to_add, dynamodb)
     elif intent_name == "TechHubExplainedIntent":
         return explanation()
-    elif intent_name == "FunctionIntent":
+    elif intent_name == "AMAZON.HelpIntent":
         return functions()
     elif intent_name == "FacilitiesIntent":
         return facilities()
