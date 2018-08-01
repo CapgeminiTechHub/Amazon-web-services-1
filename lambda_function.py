@@ -244,17 +244,17 @@ def on_intent(intent_request, session, db, dynamodb):
         quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
         return rem_value_from_db(name, quan_to_rem, dynamodb)
     elif intent_name == 'list_items':
-         return list_items(dynamodb)
+        return list_items(dynamodb)
     elif intent_name == 'get_item_quantities':
         name = sing(intent_request['intent']['slots']['name']['value'])
         return get_item_quantities(name, dynamodb)
     else:
         outputSpeech = "sorry but I didn't understand the request"
-    return build_response(outputSpeech, False)
+        return build_response(outputSpeech, False)
 
 
 # ------------ Main Handler ---------------
-def lambda_handler(event):
+def lambda_handler(event, session):
     import boto3
     from pydblite import Base
     db = Base('/tmp/TechHub.pld')
