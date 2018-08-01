@@ -109,9 +109,9 @@ def explanation():
 def functions():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "Hello. I can tell you about the Tech Hub and what we do here. I can tell you about the facilities available." + "and I can tell you about events scheduled in the Tech Hub."
+    speech_text = "Hello. I can tell you about the Tech Hub and what we do here. I can tell you about the facilities available." + " And I can tell you about events scheduled in the Tech Hub."
     reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 
 # explains what the tech hub skill can do
@@ -143,9 +143,9 @@ def add_value_to_db(name, quan_to_add, db):
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
         if quantity + quan_to_add > 1:
-            output = "I have added %s %s to the inventory" %(quan_to_add, plu(name)) + "There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+            output = "I have added %s %s to the inventory. " %(quan_to_add, plu(name)) + " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
         else:
-            output = "I have added %s %s to the inventory" %(quan_to_add, sing(name)) + "There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
+            output = "I have added %s %s to the inventory. " %(quan_to_add, sing(name)) + " There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
     except:
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
@@ -170,9 +170,9 @@ def rem_value_from_db(name, quan_to_rem, db):
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
             if quantity - quan_to_rem > 1:
-                output = "I have removed %s %s from the inventory" %(quan_to_rem, plu(name)) + "currently there are now %s %s" % (quantity - quan_to_rem, plu(name))
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, plu(name)) + " currently there are now %s %s" % (quantity - quan_to_rem, plu(name))
             elif quantity - quan_to_rem == 1:
-                output = "I have removed %s %s from the inventory" %(quan_to_rem, sing(name)) + "currently there is %s %s" % (quantity - quan_to_rem, sing(name))
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
             else:
                 output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
         else:
@@ -217,7 +217,7 @@ def on_session_started(session_started_request, session):
         "on_session_started requestId=" + session_started_request['requestId'] + ", sessionId=" + session['sessionId'])
 
 
-def on_session_ended(event, session):
+def on_session_ended(session_ended_request, session):
     print("on_session_ended requestId=" + session_ended_request['requestId'] + ", sessionId=" + session['sessionId'])
     return build_response('Good bye', True)
 
