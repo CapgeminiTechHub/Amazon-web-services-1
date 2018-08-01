@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "tech hub",
+            "invocationName": "phoenix",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -23,6 +23,35 @@
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
+                        "room",
+                        "area",
+                        "place",
+                        "about this place",
+                        "about this area",
+                        "tell me about this room",
+                        "what is this room used for",
+                        "what does this room do",
+                        "what i use this room for",
+                        "what can we use this room for ",
+                        "what can we use room for",
+                        "use room for",
+                        "use this room for",
+                        "use this room",
+                        "can we use this room for ",
+                        "can i use this room",
+                        "who can use this room",
+                        "what can i do here",
+                        "what is the tech hub for",
+                        "tell me about the tech hub area",
+                        "tell me about this area",
+                        "what can i do now",
+                        "what can you do in here",
+                        "what can i do in here",
+                        "what can you do in the tech hub",
+                        "tell me about the tech hub",
+                        "tell me about this place",
+                        "what is here",
+                        "what is this",
                         "who are you ",
                         "what goes on in this room",
                         "what is this rooom",
@@ -42,6 +71,30 @@
                     "name": "FunctionIntent",
                     "slots": [],
                     "samples": [
+                        "can i use you for",
+                        "i do with you",
+                        "we use you for",
+                        "use you for",
+                        "what can we use you for",
+                        "what can i use you for",
+                        "what can i do with you now",
+                        "what can i do with you",
+                        "tell me a list of things you can do for me now",
+                        "list of things",
+                        "list of things you can do",
+                        "what can i do with this skill",
+                        "what can i do with this app",
+                        "tell me what things you can do for me",
+                        "tell me what things you can do",
+                        "tell me what skills you can do",
+                        "tell me a list of skills you can do for me",
+                        "tell me a list of skills you know",
+                        "tell me a list of things you can do for me",
+                        "tell me a list of things you can do",
+                        "what are your functions",
+                        "what can you do now",
+                        "tell me what you can do for me",
+                        "what can you do for me",
                         "tell me what you can do",
                         "what can i do",
                         "what do you know",
@@ -54,6 +107,13 @@
                     "name": "FacilitiesIntent",
                     "slots": [],
                     "samples": [
+                        "what equipment is there for me to use",
+                        "what equpment is there to use",
+                        "can i use equipment",
+                        "what is there to use",
+                        "what kit is available",
+                        "what can i use",
+                        "whats available",
                         "explain equipment",
                         "what equipment",
                         "about equipment",
@@ -121,6 +181,8 @@
                     "name": "list_items",
                     "slots": [],
                     "samples": [
+                        "whats in the tech hub",
+                        "whats in there",
                         "what is in the tech hub",
                         "what is there",
                         "what do we have"
@@ -271,8 +333,10 @@
             "intents": [
                 {
                     "name": "add_value_to_db",
-                    "confirmationRequired": false,
-                    "prompts": {},
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.97817880755"
+                    },
                     "slots": [
                         {
                             "name": "quan_to_add",
@@ -298,8 +362,10 @@
                 },
                 {
                     "name": "rem_value_from_db",
-                    "confirmationRequired": false,
-                    "prompts": {},
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.563789989780"
+                    },
                     "slots": [
                         {
                             "name": "quan_to_rem",
@@ -322,6 +388,12 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "list_items",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": []
                 }
             ]
         },
@@ -338,6 +410,10 @@
             {
                 "id": "Elicit.Slot.646783656891.821696255611",
                 "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many {name} would you like to add?"
+                    },
                     {
                         "type": "PlainText",
                         "value": "How many would you like to add ?"
@@ -395,6 +471,24 @@
             },
             {
                 "id": "Confirm.Slot.304775896350.1264400668200",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to remove {quan_to_rem} {name}"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.97817880755",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to add {quan_to_add} {name}"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.563789989780",
                 "variations": [
                     {
                         "type": "PlainText",
