@@ -143,9 +143,9 @@ def add_value_to_db(name, quan_to_add, db):
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
         if quantity + quan_to_add > 1:
-            output = "There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+            output = "I have added %s %s to the inventory" %(quan_to_add, plu(name)) + "There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
         else:
-            output = "There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
+            output = "I have added %s %s to the inventory" %(quan_to_add, sing(name)) + "There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
     except:
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
@@ -170,9 +170,9 @@ def rem_value_from_db(name, quan_to_rem, db):
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
             if quantity - quan_to_rem > 1:
-                output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+                output = "I have removed %s %s from the inventory" %(quan_to_rem, plu(name)) + "currently there are now %s %s" % (quantity - quan_to_rem, plu(name))
             elif quantity - quan_to_rem == 1:
-                output = "currently there is %s %s" % (quantity - quan_to_rem, sing(name))
+                output = "I have removed %s %s from the inventory" %(quan_to_rem, sing(name)) + "currently there is %s %s" % (quantity - quan_to_rem, sing(name))
             else:
                 output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
         else:
