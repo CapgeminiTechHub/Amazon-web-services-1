@@ -23,23 +23,9 @@
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
-                        "room",
-                        "area",
-                        "place",
+                        "tell me about this room",
                         "about this place",
                         "about this area",
-                        "tell me about this room",
-                        "what is this room used for",
-                        "what does this room do",
-                        "what i use this room for",
-                        "what can we use this room for ",
-                        "what can we use room for",
-                        "use room for",
-                        "use this room for",
-                        "use this room",
-                        "can we use this room for ",
-                        "can i use this room",
-                        "who can use this room",
                         "what can i do here",
                         "what is the tech hub for",
                         "tell me about the tech hub area",
@@ -54,10 +40,10 @@
                         "what is this",
                         "who are you ",
                         "what goes on in this room",
-                        "what is this rooom",
+                        "what is this room",
                         "what is this place",
                         "explain what ",
-                        "what is the",
+                        "what is the tech hub",
                         "about the",
                         "what it is",
                         "what is it",
@@ -65,42 +51,6 @@
                         "what purpose is",
                         "tell me about itself",
                         "what are you"
-                    ]
-                },
-                {
-                    "name": "FunctionIntent",
-                    "slots": [],
-                    "samples": [
-                        "can i use you for",
-                        "i do with you",
-                        "we use you for",
-                        "use you for",
-                        "what can we use you for",
-                        "what can i use you for",
-                        "what can i do with you now",
-                        "what can i do with you",
-                        "tell me a list of things you can do for me now",
-                        "list of things",
-                        "list of things you can do",
-                        "what can i do with this skill",
-                        "what can i do with this app",
-                        "tell me what things you can do for me",
-                        "tell me what things you can do",
-                        "tell me what skills you can do",
-                        "tell me a list of skills you can do for me",
-                        "tell me a list of skills you know",
-                        "tell me a list of things you can do for me",
-                        "tell me a list of things you can do",
-                        "what are your functions",
-                        "what can you do now",
-                        "tell me what you can do for me",
-                        "what can you do for me",
-                        "tell me what you can do",
-                        "what can i do",
-                        "what do you know",
-                        "what it can do",
-                        "what do you do",
-                        "What can you do"
                     ]
                 },
                 {
@@ -228,6 +178,35 @@
                         "shut down the inventory",
                         "close inventory",
                         "i'm finished with the inventory"
+                    ]
+                },
+                {
+                    "name": "WhenDoesThisPlaceOpenClose",
+                    "slots": [],
+                    "samples": [
+                        "what are the opening times",
+                        "when does the tech hub",
+                        "when does this place close"
+                    ]
+                },
+                {
+                    "name": "HowDoIBookThisRoom",
+                    "slots": [],
+                    "samples": [
+                        "can i book this room",
+                        "how can i book this room",
+                        "how do I book this room"
+                    ]
+                },
+                {
+                    "name": "CanAnyoneUseThisPlace",
+                    "slots": [],
+                    "samples": [
+                        "can i use the tech hub",
+                        "can i use this room",
+                        "who can use the tech hub",
+                        "can anyone use the tech hub",
+                        "who can use this room"
                     ]
                 }
             ],
