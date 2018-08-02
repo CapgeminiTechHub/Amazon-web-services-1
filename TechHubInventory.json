@@ -96,6 +96,9 @@
                         }
                     ],
                     "samples": [
+                        "i'd like to put {name} in the inventory",
+                        "i'd like to put something in the inventory",
+                        "i'd like to add something to the inventory",
                         "add {quan_to_add} {name} to the tech hub",
                         "add {quan_to_add} {name} ",
                         "add {quan_to_add} {name} to the inventory"
@@ -320,20 +323,18 @@
                         {
                             "name": "quan_to_add",
                             "type": "AMAZON.NUMBER",
-                            "confirmationRequired": true,
+                            "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "confirmation": "Confirm.Slot.646783656891.821696255611",
                                 "elicitation": "Elicit.Slot.646783656891.821696255611"
                             }
                         },
                         {
                             "name": "name",
                             "type": "equipment",
-                            "confirmationRequired": true,
+                            "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "confirmation": "Confirm.Slot.646783656891.1136926198101",
                                 "elicitation": "Elicit.Slot.646783656891.1136926198101"
                             }
                         }
