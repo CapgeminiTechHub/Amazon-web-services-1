@@ -6,6 +6,8 @@ import boto3
 
 CardTitlePrefix = "Tech Hub"
 
+global_reprompt = "I'm sorry - I didn't understand. Please say help if you need assistance"
+
 # --------------- Helpers that build all of the responses ----------------------
 # Build a speechlet JSON representation of the title, output text,
 # reprompt text & end of session
@@ -81,7 +83,7 @@ def get_welcome_response():
     speech_output = "Hello. Welcome to the Tech Hub. Say Help if you want to know what I can do"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
+    reprompt_text = global_reprompt
     should_end_session = False
     return build_response(session_attributes,
                           build_speechlet_response(card_title, speech_output, reprompt_text, should_end_session))
@@ -101,7 +103,7 @@ def explanation():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "The Tech Hub is a place of innovation. " + "We believe that technology is worth sharing, which is why we explore new ways to use emerging tech. " + "Current projects include developing skills for Alexa and Amazon Deep-lens, as well as using " + "rasberry pies in creative experiments. Tweet-us at hash tag Tech-Hub."
-    reprompt_text = "I'm sorry - I didn't understand. Try asking me to explain myself"
+    reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
@@ -110,7 +112,7 @@ def functions():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "Hello. I can tell you about the Tech Hub and what we do here. I can tell you about the facilities available." + " And I can tell you about events scheduled in the Tech Hub. Say other options to hear more."
-    reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
+    reprompt_text =global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 # explains what the tech hub skill can do
@@ -118,7 +120,7 @@ def whoCanUseThisPlace():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "The tech hub is open to everyone. View the tech hub calendar on Outlook to see if events are happening here."
-    reprompt_text = "I'm sorry - I didn't understand. Please try again "
+    reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 # room bookings
@@ -126,7 +128,7 @@ def howDoIBookThisRoom():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "You can book this room and others using the outlook calendar"
-    reprompt_text = "I'm sorry - I didn't understand. Please try again "
+    reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 # opening/closing times
@@ -134,8 +136,23 @@ def openCloseTimes():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "The tech hub is open from nine till five"
-    reprompt_text = "I'm sorry - I didn't understand. Please try again "
+    reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+# Close inventory
+def close_inv():
+    card_title = "finished with inventory"
+    speech_text = "Now closing inventory management. If you want me to do anything else, say my name again."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+# more options
+def moreOptions():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "I can manage items in the tech hub inventory, I can tell you how to book this room, and the opening and closing times."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
 
 # explains what the tech hub skill can do
@@ -143,16 +160,15 @@ def events():
 
     card_title = "events in the tech hub"
     speech_text = "To manage events for the Tech hub, then ask me what's on the calendar."
-    reprompt_text = "I'm sorry - I didn't understand. Try asking me what I can do"
+    reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
-
 
 # explains what the tech hub skill can do
 def facilities():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " + "We have a presentation area that seats 40 and a big telly. We also have a smart football table and our own wifi."
-    reprompt_text = "I'm sorry - I didn't understand. Try asking me what facilities are available"
+    reprompt_text =global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
@@ -185,7 +201,7 @@ def add_value_to_db(name, quan_to_add, db):
 #removes item from inventory
 def rem_value_from_db(name, quan_to_rem, db):
     card_title = "Tech Hub"
-    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
+    reprompt_text = global_reprompt
     try:
         quantity = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
         quantity = int(quantity['Item']['quantity']['N'])
@@ -202,8 +218,8 @@ def rem_value_from_db(name, quan_to_rem, db):
         else:
             output = "There are not enough %s to remove that many" % plu(name)
     except Exception as e:
-        # output = "there were no %s found" % plu(name)
-        output = e
+        e = output
+        output = "Item does not exist"
 
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
@@ -211,7 +227,7 @@ def rem_value_from_db(name, quan_to_rem, db):
 # returns a list of all items in the inventory
 def list_items(db):
     card_title = "List of items in inventory"
-    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
+    reprompt_text = global_reprompt
     output = 'here is what was found in the tech hub: '
     for i in db.scan(TableName='TechHubInventory')['Items']:
         output += ' ' + plu(str(i['name']['S'])) + ','
@@ -221,15 +237,14 @@ def list_items(db):
 # returns the amount of an item
 def get_item_quantities(name, db):
     card_title = "List of items in inventory"
-    reprompt_text = "I'm sorry - I didn't understand. How can I help you?"
+    reprompt_text = global_reprompt
     output_text = ""
 
     try:
         output = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
-    except:
-        output = "there are no %s in the inventory" % plu(name)
-
-    output_text = "there are %s %s in the inventory" % (output['Item']['quantity']['N'], plu(name))
+        output_text = "there are %s %s in the inventory" % (output['Item']['quantity']['N'], plu(name))
+    except Exception:
+        output_text = "Your requested item was not found"
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
@@ -257,12 +272,18 @@ def on_intent(intent_request, session, db, dynamodb):
         return add_value_to_db(name, quan_to_add, dynamodb)
     elif intent_name == "TechHubExplainedIntent":
         return explanation()
-    elif intent_name == "AMAZON.HelpIntent" | intent_name == "AMAZON.FallbackIntent":
+    elif intent_name == "AMAZON.HelpIntent":
+        return functions()
+    elif intent_name == "AMAZON.FallbackIntent":
         return functions()
     elif intent_name == "FacilitiesIntent":
         return facilities()
+    elif intent_name == "InvIntent":
+        return close_inv()
     elif intent_name == "EventsIntent":
         return events()
+    elif intent_name == "moreOptions":
+        return moreOptions()
     elif intent_name == "WhenDoesThisPlaceOpenClose":
         return openCloseTimes()
     elif intent_name == "HowDoIBookThisRoom":
