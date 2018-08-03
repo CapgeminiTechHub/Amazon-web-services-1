@@ -30,7 +30,7 @@ Saying phrases such as:
 - "Ask Phoenix"
 - "[do something] from Phoenix"
 
-will open the skill and perform the action you asked.
+will open the skill and perform an intent if desired.
 
 
 # Explain Tech Hub
@@ -40,18 +40,29 @@ Asking questions such as:
 - "Who are you?"
 - "What goes on in this room?"
 - "What is this place?"
+- "Tell me about the tech hub."
 
 These questions and similar questions will cause Alexa to respond by explaining the purpose of the tech hub.
 
 
-# Functions
+# Help
 
-Asking questions such as:
+If the skill is invoked but no intent is uttered, the launch request prompts the user to as for help.
 
-- "What can you do?"
-- "What do you do"
+- "help"
+- "help me"
 
-Will prompt Alexa to respond with the list of actions she can perform.
+Will prompt Alexa to respond with a list of the functions Phoenix can do. It also offers more options
+
+
+# More Options
+
+This intent acts as part two of the help function. it is activated by utterances such as:
+
+- "more options"
+- "other options"
+
+Like the help intent, it leaves the session open so that the user can activate another intent rahter than haivng to reinvoke the skill.
 
 
 # Facilities
@@ -71,14 +82,14 @@ The Inventory keeps track of the quantity of various items in the tech hub. User
 
 ## Viewing Inventory
 
-This command can be invoked by saying the following phrases:
+This intent can be activated by saying the following phrases:
 
 - "How many [item] do we have?"
 - "How many [item] are in the inventory?"
 
 ## Adding Item to Inventory
 
-This command can be invoked by saying the following phrases:
+This intent can be activated by saying the following phrases:
 
 - "Add [quantity] [item]"
 - "Add [quantity] [item] to the tech hub" 
@@ -86,7 +97,7 @@ This command can be invoked by saying the following phrases:
 
 ## Removing Item from Inventory
 
-This command can be invoked by saying the following phrases:
+This intent can be activated by saying the following phrases:
 
 - "Remove [quantity] [item]"
 - "Remove [quantity] [item] from the tech hub" 
@@ -96,4 +107,17 @@ This command can be invoked by saying the following phrases:
 
 - "What is in the inventory"
 - "What do we have"
+
+This intent does not list the number of items, just the different types of items.
+
+## Closing the Inventory
+
+This intent is activated with utterances suchs as:
+
+- "close the inventory"
+- "i'm finished with the inventory"
+- "lock the inventory"
+- "shut the inventory"
+
+This intent fullfills the purpose of closing the session for inventory management.
 
