@@ -47,7 +47,6 @@
                         "about the",
                         "what it is",
                         "what is it",
-                        "explain itself",
                         "what purpose is",
                         "tell me about itself",
                         "what are you"
@@ -57,6 +56,7 @@
                     "name": "FacilitiesIntent",
                     "slots": [],
                     "samples": [
+                        "what facilities are there",
                         "what equipment is there for me to use",
                         "what equpment is there to use",
                         "can i use equipment",
@@ -80,19 +80,11 @@
                     "slots": [
                         {
                             "name": "quan_to_add",
-                            "type": "AMAZON.NUMBER",
-                            "samples": [
-                                "{quan_to_add}",
-                                "{quan_to_add} {name}"
-                            ]
+                            "type": "AMAZON.NUMBER"
                         },
                         {
                             "name": "name",
-                            "type": "equipment",
-                            "samples": [
-                                "{quan_to_add} {name}",
-                                "{name}"
-                            ]
+                            "type": "equipment"
                         }
                     ],
                     "samples": [
@@ -109,19 +101,11 @@
                     "slots": [
                         {
                             "name": "quan_to_rem",
-                            "type": "AMAZON.NUMBER",
-                            "samples": [
-                                "{quan_to_rem} {name}",
-                                "{quan_to_rem}"
-                            ]
+                            "type": "AMAZON.NUMBER"
                         },
                         {
                             "name": "name",
-                            "type": "equipment",
-                            "samples": [
-                                "{name}",
-                                "{quan_to_rem} {name}"
-                            ]
+                            "type": "equipment"
                         }
                     ],
                     "samples": [
@@ -134,6 +118,7 @@
                     "name": "list_items",
                     "slots": [],
                     "samples": [
+                        "whats in the inventory",
                         "whats in the tech hub",
                         "whats in there",
                         "what is in the tech hub",
@@ -187,6 +172,16 @@
                     "name": "WhenDoesThisPlaceOpenClose",
                     "slots": [],
                     "samples": [
+                        "when does this place open",
+                        "what is the closing time",
+                        "business hours",
+                        "business hour",
+                        "closing hours",
+                        "opening hours",
+                        "opening time",
+                        "close time",
+                        "closing time",
+                        "open time",
                         "what are the opening times",
                         "when does the tech hub",
                         "when does this place close"
@@ -196,6 +191,9 @@
                     "name": "HowDoIBookThisRoom",
                     "slots": [],
                     "samples": [
+                        "how to book room",
+                        "can we book this room",
+                        "book room",
                         "can i book this room",
                         "how can i book this room",
                         "how do I book this room"
@@ -205,11 +203,24 @@
                     "name": "CanAnyoneUseThisPlace",
                     "slots": [],
                     "samples": [
+                        "use this room",
+                        "use this place",
+                        "can anyone use this place",
                         "can i use the tech hub",
                         "can i use this room",
                         "who can use the tech hub",
                         "can anyone use the tech hub",
                         "who can use this room"
+                    ]
+                },
+                {
+                    "name": "moreOptions",
+                    "slots": [],
+                    "samples": [
+                        "options",
+                        "more commands",
+                        "give me more options",
+                        "more options"
                     ]
                 }
             ],
@@ -310,172 +321,6 @@
                     ]
                 }
             ]
-        },
-        "dialog": {
-            "intents": [
-                {
-                    "name": "add_value_to_db",
-                    "confirmationRequired": true,
-                    "prompts": {
-                        "confirmation": "Confirm.Intent.97817880755"
-                    },
-                    "slots": [
-                        {
-                            "name": "quan_to_add",
-                            "type": "AMAZON.NUMBER",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.646783656891.821696255611"
-                            }
-                        },
-                        {
-                            "name": "name",
-                            "type": "equipment",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.646783656891.1136926198101"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "rem_value_from_db",
-                    "confirmationRequired": true,
-                    "prompts": {
-                        "confirmation": "Confirm.Intent.563789989780"
-                    },
-                    "slots": [
-                        {
-                            "name": "quan_to_rem",
-                            "type": "AMAZON.NUMBER",
-                            "confirmationRequired": true,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "confirmation": "Confirm.Slot.304775896350.296768307666",
-                                "elicitation": "Elicit.Slot.304775896350.296768307666"
-                            }
-                        },
-                        {
-                            "name": "name",
-                            "type": "equipment",
-                            "confirmationRequired": true,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "confirmation": "Confirm.Slot.304775896350.1264400668200",
-                                "elicitation": "Elicit.Slot.304775896350.1264400668200"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "list_items",
-                    "confirmationRequired": false,
-                    "prompts": {},
-                    "slots": []
-                }
-            ]
-        },
-        "prompts": [
-            {
-                "id": "Confirm.Slot.646783656891.821696255611",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to add {quan_to_add} {name} ?"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.646783656891.821696255611",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "How many {name} would you like to add?"
-                    },
-                    {
-                        "type": "PlainText",
-                        "value": "How many would you like to add ?"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.646783656891.1136926198101",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "What would you like to add ?"
-                    }
-                ]
-            },
-            {
-                "id": "Confirm.Slot.646783656891.1136926198101",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to add {quan_to_add} {name}"
-                    },
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to add {name}"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.304775896350.296768307666",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "How many would you like to remove ?"
-                    }
-                ]
-            },
-            {
-                "id": "Confirm.Slot.304775896350.296768307666",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to remove {quan_to_rem} {name}"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.304775896350.1264400668200",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "What would you like to remove ?"
-                    }
-                ]
-            },
-            {
-                "id": "Confirm.Slot.304775896350.1264400668200",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to remove {quan_to_rem} {name}"
-                    }
-                ]
-            },
-            {
-                "id": "Confirm.Intent.97817880755",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to add {quan_to_add} {name}"
-                    }
-                ]
-            },
-            {
-                "id": "Confirm.Intent.563789989780",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "Are you sure you want to remove {quan_to_rem} {name}"
-                    }
-                ]
-            }
-        ]
+        }
     }
 }
