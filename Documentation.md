@@ -44,7 +44,9 @@ By using 'Tech Hub' as the invocation name, questions such as 'tell me about the
 
 Testing with a different invocation name such as 'helper' gave us a higher sucess rate. As a result of this testing, we had a discussion and concluded to change the invocation to 'Phoenix'.
 
-We now planning on adding more utterances and keeping the session open to make the experience wit the skill feel more conversational.
+At this point our next step was to add more utterances and to keep the session open for certain intents to make interacting wiht the skill feel more conversational.
+
+
 
 
 
