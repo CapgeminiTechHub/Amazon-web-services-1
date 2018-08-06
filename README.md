@@ -11,26 +11,26 @@
 
 # Overview
 
-The Tech Hub skill allows users to walk into the @Phoenix Tech Hub at Capgemini and answer users queries. 
+The Tech Hub skill allows users to walk into the @Phoenix Tech Hub at Capgemini and ask questions about the tech hub. The skill respons to a variety of queries. 
 
 Examples of the queries the Tech Hub skill can answer include the following:
 
-- Tells us what the Tech Hub is
-- Tells us what the Tech Hub skill can do
-- Tells us about the facilities available in the Tech Hub
-- Tell us about the inventories available in the Tech Hub
-
+- Tells me what the Tech Hub is
+- Tells me what you can do
+- Tells me about the facilities available in the Tech Hub
+- Tell me what's in the inventory
+- etc.
 
 # Opening the skill
 
-The invocation name for the Tech hub skill is 'Phoenix'.
+The invocation name for the Tech Hub skill is 'Phoenix'.
 Saying phrases such as:
 
 - "Open Phoenix"
 - "Ask Phoenix"
 - "[do something] from Phoenix"
 
-will open the skill and perform an intent if desired.
+will open the skill and perform an intent if applicable. Intents can be activated at the same time as, or after opening the skill.
 
 
 # Explain Tech Hub
@@ -42,12 +42,12 @@ Asking questions such as:
 - "What is this place?"
 - "Tell me about the tech hub."
 
-These questions and similar questions will cause Alexa to respond by explaining the purpose of the tech hub.
+as well as others, will cause Alexa to respond by explaining the purpose of the Tech Hub.
 
 
 # Help
 
-If the skill is invoked but no intent is uttered, the launch request prompts the user to as for help.
+If the skill is invoked but no intent is uttered, the launch request prompts the user to ask for help.
 
 - "help"
 - "help me"
