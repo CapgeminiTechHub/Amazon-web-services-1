@@ -54,7 +54,9 @@ Instead we implemented some new intents to give the skill more functionality. We
 
 We also changed the functions() intent, which explains what the skill does, to respond to the AMAZON.help intent, a built in intent. Following the design principles outlined for VUIs, we limited the help function to explaining 3 intents. This meant that we needed a 'moreOptions' intent, which listed the remaining functions of the skill. These functions left the session open so that the user could activate a follow up intent with out having to reinvoke the skill. 
 
-We also implemented a proper fallback Intent. In the case of not understanding  a response, the skill would reply with the functions() def, the same as the help intent. 
+We also implemented a proper fallback Intent. In the case of not understanding a response as an accepted utterance, the skill would reply with the functions() def, the same as the help intent. 
+
+We also had to spent some time cleaning up utterances, some were too similair, which would result in the wrong intent being activated.
 
 
 
