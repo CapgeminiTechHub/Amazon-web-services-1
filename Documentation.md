@@ -46,6 +46,14 @@ Testing with a different invocation name such as 'helper' gave us a higher suces
 
 At this point our next step was to add more utterances and to keep the session open for certain intents to make interacting wiht the skill feel more conversational.
 
+# The Next Couple of Weeks
+
+We continued to refine the skill over the next couple of weeks. We considered using dialog.delegate to create multi dialog interactions. However, this functionality was taking up a lot of resources, and so in the end we decided to forgo it.
+
+Instead we implemented some new intents to give the skill more functionality. We added intents to close inventory management sessions, to inform users of opening times, to explain how to book rooms in the tech hub and who can use the tech hub.
+
+We also changed the functions() intent, which explained what skill does, to respond to the AMAZON.help intent, a built in intent. Following the design principles outlined for VUIs, we limited the help function to explaining 3 intents. This meant that we needed a 'moreOptions' intent, which listed the remaining functions of the skill. These functions left the session open so that the user could activate a follow up intent with out having to reinvoke the skill. 
+
 
 
 
