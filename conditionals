@@ -1,0 +1,19 @@
+  if quantity - quan_to_rem > 1 & quan_to_rem <= 1:
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+            elif quantity - quan_to_rem > 1:
+                output = "I have removed %s %s from the inventory. " % (quan_to_rem, plu(name)) + " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+            elif quantity - quan_to_rem <= 1 & quan_to_rem <= 1:
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + " currently there are %s %s" % (quantity - quan_to_rem, sing(name))
+            elif quantity - quan_to_rem <= 1:
+                output = "I have removed %s %s from the inventory. " % (quan_to_rem, plu(name)) + " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
+            else:
+                output = "currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+                
+                
+                 if quantity + quan_to_add > 1 & quan_to_add > 1:
+            output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+        elif quantity + quan_to_add > 1 & quan_to_add <= 1:
+            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+        else:
+            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + " There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
+    
