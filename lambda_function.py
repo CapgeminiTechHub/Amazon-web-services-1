@@ -3,6 +3,10 @@
 
 from __future__ import print_function
 import boto3
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 CardTitlePrefix = "Tech Hub"
 
@@ -102,7 +106,10 @@ def handle_session_end_request():
 def explanation():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "The Tech Hub is a place of innovation. " + "We believe that technology is worth sharing, which is why we explore new ways to use emerging tech. " + "Current projects include developing skills for Alexa and Amazon Deep-lens, as well as using " + "rasberry pies in creative experiments. Tweet-us at hash tag Tech-Hub."
+    speech_text = "The Tech Hub is a place of innovation. We believe that technology is worth sharing, which is why we"\
+                  " explore new ways to use emerging tech. Current projects include developing skills for Alexa and"\
+                  " Amazon Deep-lens, as well as using rasberry pies in creative experiments. Tweet-us at hash tag " \
+                  "Tech-Hub."
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
@@ -111,25 +118,30 @@ def explanation():
 def fallback():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "Ask for help, or more options, if you need assistance"
+    speech_text = "If you need assistance, ask for help."
     reprompt_text = global_reprompt
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
 
 # explains what the tech hub skill can do
 def help():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "Hi, You can manage items , I can tell you about events , or you can ask for more info. What would you like to do ?"
+    speech_text = "Hi, You can manage items , I can tell you about events , or you can ask for more info. " \
+                  "What would you like to do ?"
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+
 
 # explains what the tech hub skill can do
 def whoCanUseThisPlace():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "The tech hub is open to everyone. View the tech hub calendar on Outlook to see if events are happening here."
+    speech_text = "The tech hub is open to everyone. View the tech hub calendar on Outlook to see " \
+                  "if events are happening here."
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
 
 # room bookings
 def howDoIBookThisRoom():
@@ -139,6 +151,7 @@ def howDoIBookThisRoom():
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
+
 # opening/closing times
 def openCloseTimes():
 
@@ -147,6 +160,7 @@ def openCloseTimes():
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
+
 # Close inventory
 def close_inv():
     card_title = "finished with inventory"
@@ -154,28 +168,45 @@ def close_inv():
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
+
 # more options
 def moreInfo():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "I can tell you about the tech hub. I can tell you about facilities available and our opening and closing times."
+    speech_text = "I can tell you about the tech hub. I can tell you about facilities available and " \
+                  "our opening and closing times."
     reprompt_text = global_reprompt
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
-# explains what the tech hub skill can do
-def events():\
+# ItemManager
+def manageItems():
 
-    card_title = "events in the tech hub"
-    speech_text = "To manage events for the Tech hub, then ask me what's on the calendar."
+    card_title = "Welcome to the Tech hub"
+    speech_text = "To add or remove items to the inventory, just say add or remove, " \
+                  "followed by the amount and item name. To list all items in the inventory, " \
+                  "ask what's in the inventory. To hear the quantity of an item, ask how many are " \
+                  "followed by the name of the item. When you're finished remind me to lock the inventory."
     reprompt_text = global_reprompt
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+
+# EventsManager
+def manageEvents():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "To see upcoming events, ask to see the calendar. To book an event in this room, use Outlook."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
 
 # explains what the tech hub skill can do
 def facilities():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " + "We have a presentation area that seats 40 and a big telly. We also have a smart football table and our own wifi."
+    speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " \
+                  "We have a presentation area that seats 40 and a big telly. We also have a smart football table and " \
+                  "our own wifi."
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
@@ -191,13 +222,17 @@ def add_value_to_db(name, quan_to_add, db):
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
         if quantity + quan_to_add > 1 & quan_to_add > 1:
-            output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+            output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + \
+                     " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
         elif quantity + quan_to_add > 1 & quan_to_add <= 1:
-            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + \
+                     " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
         elif quantity + quan_to_add < 1 & quan_to_add == 1:
-            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
+            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + \
+                     " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
         else:
-            output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + " There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
+            output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + \
+                     " There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
     except:
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
@@ -210,7 +245,7 @@ def add_value_to_db(name, quan_to_add, db):
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
 
-#removes item from inventory
+# removes item from inventory
 def rem_value_from_db(name, quan_to_rem, db):
     card_title = "Tech Hub"
     reprompt_text = global_reprompt
@@ -222,13 +257,17 @@ def rem_value_from_db(name, quan_to_rem, db):
                            UpdateExpression=' SET quantity = :newquantity ',
                            ExpressionAttributeValues={':newquantity': {'N': str(quantity - quan_to_rem)}})
             if quantity - quan_to_rem > 1 & quan_to_rem == 1:
-                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + \
+                         " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
             elif quantity - quan_to_rem > 1 & quan_to_rem != 1:
-                output = "I have removed %s %s from the inventory. " %(quan_to_rem, plu(name)) + " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, plu(name)) + \
+                         " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
             elif quantity - quan_to_rem == 1 & quan_to_rem == 1:
-                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
+                output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + \
+                         " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
             else:
-                output = "I have removed %s %s from the inventory. " % (quan_to_rem, plu(name)) + " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
+                output = "I have removed %s %s from the inventory. " % (quan_to_rem, plu(name)) + \
+                         " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
 
         else:
             output = "There are not enough %s to remove that many" % plu(name)
@@ -262,8 +301,8 @@ def get_item_quantities(name, db):
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
-# --------------- Events ------------------
 
+# --------------- Events ------------------
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
     print(
@@ -295,9 +334,11 @@ def on_intent(intent_request, session, db, dynamodb):
     elif intent_name == "InvIntent":
         return close_inv()
     elif intent_name == "EventsIntent":
-        return events()
+        return manageEvents()
     elif intent_name == "moreInfo":
         return moreInfo()
+    elif intent_name == "manageItems":
+        return manageItems()
     elif intent_name == "WhenDoesThisPlaceOpenClose":
         return openCloseTimes()
     elif intent_name == "HowDoIBookThisRoom":
@@ -330,7 +371,9 @@ def lambda_handler(event, session):
         db.open()
     dynamodb = boto3.client('dynamodb')
 
+    print("[INTENT_HANDLER]")
     print("event.session.application.applicationId=" + event['session']['application']['applicationId'])
+    logger.info('got event{}'.format(event))
 
     if event['session']['new']:
         on_session_started({'requestId': event['request']['requestId']},
@@ -349,6 +392,7 @@ def lambda_handler(event, session):
 # invoked by launch request
 def on_launch(launch_request, session):
     """ Called when the user launches the skill without specifying what they want """
+    print("[Launch]")
     print("on_launch requestId=" + launch_request['requestId'] + ", sessionId=" + session['sessionId'])
     # Dispatch to your skill's launch
     return get_welcome_response()
