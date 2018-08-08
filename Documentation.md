@@ -64,7 +64,7 @@ We felt ready to demonstrate our skill, however we ran into a problem, which lef
 
 Moreover, after showing our skill to Les, the feedback we received consisted of the following:
 
-- Change invocation name from 'Phoenix' to 'Tech Hub'
+- Change invocation name from 'Phoenix' to 'Tech Hub'. The reason given was that users would be likely to call it tech hub and not phoenix
 - Research how cloud logs can be used to monitor the interactions with the alexa device, to allow us to find errors with real usage and thus allow us to address the issues.
 - Make the VUI more natural 
 
