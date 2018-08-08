@@ -1,0 +1,18 @@
+# ItemManager
+def ManageItems():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "To add or remove items to the inventory, just say add or remove, " \
+                  "followed by the amount and item name. To list all items in the inventory, " \
+                  "ask what's in the inventory. To hear the quantity of an item, ask how many are " \
+                  "followed by the name of the item. When you're finished remind me to lock the inventory."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+# EventsManager
+def ManageEvents():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "To see upcoming events, ask to see the calendar. To book an event in this room, use Outlook."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
