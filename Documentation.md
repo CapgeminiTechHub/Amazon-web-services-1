@@ -60,7 +60,7 @@ We also had to spent some time cleaning up utterances, some were too similair, w
 
 # Week Beginning 06/08/18
 
-We felt ready to demonstrate our skill, however we ran into a problem, which left us confused all of Monday. The invocation name was no longer opening up our skill. We later learnt the reason for this was that we had multiple skills that were enabled and shared the same invocation name. This caused a clash and would invoke a older skill when we said 'Open Phoenix' to open up our skill.
+We felt ready to demonstrate our skill, however we ran into a problem, which left us confused all of Monday. The invocation name was no longer opening up our skill. We later learnt the reason for this was that we had multiple skills that were enabled and shared the same invocation name. This caused a clash and would invoke an older skill when we said 'Open Phoenix' to open up our skill.
 
 Moreover, after showing our skill to Les, the feedback we received consisted of the following:
 
