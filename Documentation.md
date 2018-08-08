@@ -58,7 +58,17 @@ We also implemented a proper fallback Intent. In the case of not understanding a
 
 We also had to spent some time cleaning up utterances, some were too similair, which would result in the wrong intent being activated.
 
+# Week Beginning 06/08/18
 
+We felt ready to demonstrate our skill, however we ran into a problem, which left us confused all of Monday. The invocation name was no longer opening up our skill. We later learnt the reason for this was that we had multiple skills that were enabled and shared the same invocation name. This caused a clash and would invoke a older skill when we said 'Open Phoenix' to open up our skill.
+
+Moreover, after showing our skill to Les, the feedback we received consisted of the following:
+
+- Change invocation name from 'Phoenix' to 'Tech Hub'
+- Research how cloud logs can be used to monitor the interactions with the alexa device, to allow us to find errors with real usage and thus allow us to address the issues.
+- Make the VUI more natural 
+
+The above will be addressed by the end of the week, we hope to complete our task successfully and move onto experimenting with Amazon Deep Lens.
 
 
 
