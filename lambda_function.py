@@ -128,8 +128,8 @@ def fallback():
 def help():
     print("[Help]")
     card_title = "Welcome to the Tech hub"
-    speech_text = "Hi, You can manage items , I can tell you about events , or you can ask for more info. " \
-                  "What would you like to do ?"
+    speech_text = "Hi,I can tell you how to manage items, I can tell you about events , or you can ask me for more info"\
+                  "About the tech hub. What would you like to do ?"
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, False))
 
@@ -176,9 +176,17 @@ def manageItems():
     print("[Manage Items]")
     card_title = "Welcome to the Tech hub"
     speech_text = "To add or remove items to the inventory, just say add or remove, " \
-                  "followed by the amount and item name. To list all items in the inventory, " \
-                  "ask what's in the inventory. To hear the quantity of an item, ask how many are " \
-                  "followed by the name of the item. When you're finished remind me to lock the inventory."
+                  "followed by the amount and item name.. To list all items in the inventory, " \
+                  "ask what's in the inventory.. To hear the quantity of an item, ask how many are " \
+                  "followed by the name of the item.. When you're finished remind me to lock the inventory."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+#Read calendar
+def readCalendar():
+    print("[Read Calendar]")
+    card_title = "Welcome to the Tech hub"
+    speech_text =
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
