@@ -30,26 +30,16 @@
                         "what is the tech hub for",
                         "tell me about the tech hub area",
                         "tell me about this area",
-                        "what can i do now",
                         "what can you do in here",
                         "what can i do in here",
                         "what can you do in the tech hub",
                         "tell me about the tech hub",
                         "tell me about this place",
                         "what is here",
-                        "what is this",
-                        "who are you ",
                         "what goes on in this room",
                         "what is this room",
                         "what is this place",
-                        "explain what ",
-                        "what is the tech hub",
-                        "about the",
-                        "what it is",
-                        "what is it",
-                        "what purpose is",
-                        "tell me about itself",
-                        "what are you"
+                        "what is the tech hub"
                     ]
                 },
                 {
@@ -59,7 +49,7 @@
                         "what facilities are there",
                         "what equipment is there for me to use",
                         "what equpment is there to use",
-                        "can i use equipment",
+                        "can i use the equipment here",
                         "what is there to use",
                         "what kit is available",
                         "what can i use",
@@ -88,9 +78,6 @@
                         }
                     ],
                     "samples": [
-                        "i'd like to put {name} in the inventory",
-                        "i'd like to put something in the inventory",
-                        "i'd like to add something to the inventory",
                         "add {quan_to_add} {name} to the tech hub",
                         "add {quan_to_add} {name} ",
                         "add {quan_to_add} {name} to the inventory"
@@ -162,6 +149,7 @@
                     "name": "InvIntent",
                     "slots": [],
                     "samples": [
+                        "close the inventory",
                         "lock the inventory",
                         "shut down the inventory",
                         "close inventory",
@@ -214,13 +202,26 @@
                     ]
                 },
                 {
-                    "name": "moreOptions",
+                    "name": "moreInfo",
                     "slots": [],
                     "samples": [
-                        "options",
-                        "more commands",
-                        "give me more options",
-                        "more options"
+                        "more info about the tech hub",
+                        "more information",
+                        "tell me more information",
+                        "give me more information",
+                        "tell me more info",
+                        "give me more info"
+                    ]
+                },
+                {
+                    "name": "manageItems",
+                    "slots": [],
+                    "samples": [
+                        "tell me how to manage items",
+                        "how do I use the inventory",
+                        "manage inventory",
+                        "manage items",
+                        "how do I manage items"
                     ]
                 }
             ],
@@ -230,92 +231,93 @@
                     "values": [
                         {
                             "name": {
-                                "value": "desks"
+                                "value": "laptop",
+                                "synonyms": [
+                                    "windows machine",
+                                    "think pad",
+                                    "lenovo",
+                                    "computer",
+                                    "pc",
+                                    "portable computer"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "mice"
+                                "value": "batteries",
+                                "synonyms": [
+                                    "battery"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "keyboards"
+                                "value": "desks",
+                                "synonyms": [
+                                    "desk"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "monitors"
+                                "value": "mice",
+                                "synonyms": [
+                                    "computer mice",
+                                    "computer mouse",
+                                    "mouse"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "chargers"
+                                "value": "keyboards",
+                                "synonyms": [
+                                    "keyboard"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "raspberry pies"
+                                "value": "monitors",
+                                "synonyms": [
+                                    "display",
+                                    "screens",
+                                    "monitor",
+                                    "screen"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "brick pies"
+                                "value": "chargers",
+                                "synonyms": [
+                                    "charging station",
+                                    "power supply",
+                                    "charging lead",
+                                    "charger"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "screens"
+                                "value": "raspberry pies",
+                                "synonyms": [
+                                    "raspbian computer",
+                                    "raspbian machine",
+                                    "raspbian",
+                                    "raspberry pie"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "mind storms set"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "raspberry pie camera"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "brick pie"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "keyboard"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "mouse"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "desk"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "laptop"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "charger"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "raspberry pie"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "screen"
+                                "value": "mind storms set",
+                                "synonyms": [
+                                    "mind storms",
+                                    "lego",
+                                    "mind storm",
+                                    "lego set"
+                                ]
                             }
                         }
                     ]
