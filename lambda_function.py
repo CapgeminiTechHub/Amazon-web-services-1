@@ -156,7 +156,7 @@ def openCloseTimes():
 def close_inv():
     print("[Close Inventory]")
     card_title = "finished with inventory"
-    speech_text = "Now closing inventory management. If you want me to do anything else, say phoenix."
+    speech_text = "Now closing inventory management. If you want me to do anything else, say tech hub."
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
