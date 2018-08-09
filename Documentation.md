@@ -69,7 +69,9 @@ On Tuesday we gave a demonstration to Les Frost. From this test, we received the
 - Research how cloud logs can be used to monitor the interactions with the alexa device. This should allow us to find errors with real usage and thus allow us to address the issues.
 - Make the VUI more natural and easier for newcomers
 
-In response to the latter point, we redesigned the help function to be more comprehensive. We created a branching path, where by there is a sinlge help function, and 3 further options which explain all the different itents available. 
+In response to the latter point, we redesigned the help function to be more comprehensive. We created a branching path, where there is a sinlge help function, and 3 further options which explain all the different intents available. These 3 furthur options necessitated 3 more intents. 
+
+This also meant changing some utterances to make sure that there were no clashes. After experimenting a bit we found that 'tech hub' could be used as both the invocation name and in the utterances, which helped the utterances sound more natural.
 
 
 
