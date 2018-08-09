@@ -138,14 +138,6 @@
                     "samples": []
                 },
                 {
-                    "name": "AMAZON.NoIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.YesIntent",
-                    "samples": []
-                },
-                {
                     "name": "InvIntent",
                     "slots": [],
                     "samples": [
@@ -179,6 +171,9 @@
                     "name": "HowDoIBookThisRoom",
                     "slots": [],
                     "samples": [
+                        "can I book event",
+                        "how to manage events",
+                        "tell me about events",
                         "how to book room",
                         "can we book this room",
                         "book room",
