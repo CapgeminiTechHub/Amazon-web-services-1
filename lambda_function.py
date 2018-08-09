@@ -150,15 +150,6 @@ def openCloseTimes():
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
-# room bookings
-def howDoIBookThisRoom():
-
-    card_title = "Welcome to the Tech hub"
-    speech_text = "You can book this room and others using the outlook calendar"
-    reprompt_text = global_reprompt
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
-
-
 # Close inventory
 def close_inv():
     card_title = "finished with inventory"
