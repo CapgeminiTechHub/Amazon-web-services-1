@@ -46,7 +46,7 @@ Testing with a different invocation name such as 'helper' gave us a higher suces
 
 At this point our next step was to add more utterances and to keep the session open for certain intents to make interacting wiht the skill feel more conversational.
 
-# The Next Couple of Weeks
+# The Following Week
 
 We continued to refine the skill over the next couple of weeks. We considered using dialog.delegate to create multi dialog interactions. However, this functionality was taking up a lot of resources, and so in the end we decided to forgo it.
 
@@ -60,15 +60,16 @@ We also had to spent some time cleaning up utterances, some were too similair, w
 
 # Week Beginning 06/08/18
 
-We felt ready to demonstrate our skill, however we ran into a problem, which left us confused all of Monday. The invocation name was no longer opening up our skill. We later learnt the reason for this was that we had multiple skills that were enabled and shared the same invocation name. This caused a clash and would invoke an older skill when we said 'Open Phoenix' to open up our skill.
+We had planned to demonstrate our skill on Monday, however we ran into a problem.. The invocation name was no longer opening our skill. We later learnt the reason for this was that we had multiple skills that were enabled and shared the same invocation name. This caused a clash and meant that an older verison of our skill was being invoked. We solved the issue by disabling testing for all other skills.
 
-Moreover, after showing our skill to Les, the feedback we received consisted of the following:
+On Tuesday we gave a demonstration to Les Frost. From this test, we received the following feedback:
 
-- Change invocation name from 'Phoenix' to 'Tech Hub'. The reason given was that users would be likely to call it tech hub and not phoenix
+- Change the invocation name from 'Phoenix' back to 'Tech Hub'. The reason given was that users would be likely to call it tech hub and not phoenix, and that most of the intents would still work if tech hub was the invocation name.
+  -- this did require changing the utterances for TechHubExplainedIntent however
 - Research how cloud logs can be used to monitor the interactions with the alexa device, to allow us to find errors with real usage and thus allow us to address the issues.
 - Make the VUI more natural 
 
-The above will be addressed by the end of the week, we hope to complete our task successfully and move onto experimenting with Amazon Deep Lens.
+The above will be addressed by the end of the week, we hope to complete our task successfully and move onto experimenting with Amazon DeepLens.
 
 
 
