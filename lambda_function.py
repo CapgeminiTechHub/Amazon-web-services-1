@@ -143,6 +143,13 @@ def whoCanUseThisPlace():
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
 
+def openCloseTimes():
+    card_title = "Welcome to the Tech hub"
+    speech_text = "The tech hub is open from 9 until 5."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+
 # room bookings
 def howDoIBookThisRoom():
 
@@ -183,7 +190,7 @@ def manageItems():
 
 
 # EventsManager
-def openCloseTimes():
+def howDoIBookThisRoom():
 
     card_title = "Welcome to the Tech hub"
     speech_text = "To see upcoming events, ask to see the calendar. To book an event in this room, use Outlook."
