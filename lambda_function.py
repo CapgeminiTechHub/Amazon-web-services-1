@@ -82,6 +82,7 @@ def plu(string, count=2):
 # --------------- Functions that control the skill's behavior ------------------
 # invoked on launch
 def get_welcome_response():
+    print("[Welcome]")
     session_attributes = {}
     card_title = "Hello and welcome"
     speech_output = "Hello. Welcome to the Tech Hub. Say Help if you want to know what I can do"
@@ -104,7 +105,7 @@ def handle_session_end_request():
 
 # explains what the tech hub is
 def explanation():
-
+    print("[Explain]")
     card_title = "Welcome to the Tech hub"
     speech_text = "The Tech Hub is a place of innovation. We believe that technology is worth sharing, which is why we"\
                   " explore new ways to use emerging tech. Current projects include developing skills for Alexa and"\
@@ -116,7 +117,7 @@ def explanation():
 
 # fallback
 def fallback():
-
+    print("[Fallback]")
     card_title = "Welcome to the Tech hub"
     speech_text = "If you need assistance, ask for help."
     reprompt_text = global_reprompt
@@ -125,7 +126,7 @@ def fallback():
 
 # explains what the tech hub skill can do
 def help():
-
+    print("[Help]")
     card_title = "Welcome to the Tech hub"
     speech_text = "Hi, You can manage items , I can tell you about events , or you can ask for more info. " \
                   "What would you like to do ?"
@@ -135,7 +136,7 @@ def help():
 
 # explains what the tech hub skill can do
 def whoCanUseThisPlace():
-
+    print("[Who can use this place]")
     card_title = "Welcome to the Tech hub"
     speech_text = "The tech hub is open to everyone. View the tech hub calendar on Outlook to see " \
                   "if events are happening here."
@@ -144,6 +145,7 @@ def whoCanUseThisPlace():
 
 
 def openCloseTimes():
+    print("[Open/Close Times]")
     card_title = "Welcome to the Tech hub"
     speech_text = "The tech hub is open from 9 until 5."
     reprompt_text = global_reprompt
@@ -152,6 +154,7 @@ def openCloseTimes():
 
 # Close inventory
 def close_inv():
+    print("[Close Inventory]")
     card_title = "finished with inventory"
     speech_text = "Now closing inventory management. If you want me to do anything else, say phoenix."
     reprompt_text = global_reprompt
@@ -160,7 +163,7 @@ def close_inv():
 
 # more options
 def moreInfo():
-
+    print("[More Info]")
     card_title = "Welcome to the Tech hub"
     speech_text = "I can tell you about the tech hub. I can tell you about facilities available and " \
                   "our opening and closing times."
@@ -170,7 +173,7 @@ def moreInfo():
 
 # ItemManager
 def manageItems():
-
+    print("[Manage Items]")
     card_title = "Welcome to the Tech hub"
     speech_text = "To add or remove items to the inventory, just say add or remove, " \
                   "followed by the amount and item name. To list all items in the inventory, " \
@@ -182,7 +185,7 @@ def manageItems():
 
 # EventsManager
 def howDoIBookThisRoom():
-
+    print("[Book Room]")
     card_title = "Welcome to the Tech hub"
     speech_text = "To see upcoming events, ask to see the calendar. To book an event in this room, use Outlook."
     reprompt_text = global_reprompt
@@ -191,7 +194,7 @@ def howDoIBookThisRoom():
 
 # explains what the tech hub skill can do
 def facilities():
-
+    print("[Facilities]")
     card_title = "Welcome to the Tech hub"
     speech_text = "In the Tech Hub we have available 12 desks, 9 with 2 monitors and 3 with 1 monitor each. " \
                   "We have a presentation area that seats 40 and a big telly. We also have a smart football table and " \
@@ -202,6 +205,7 @@ def facilities():
 
 # adds items to inventory
 def add_value_to_db(name, quan_to_add, db):
+    print("[Add item]")
     card_title = "Tech Hub"
     reprompt_text = global_reprompt
     try:
@@ -236,6 +240,7 @@ def add_value_to_db(name, quan_to_add, db):
 
 # removes item from inventory
 def rem_value_from_db(name, quan_to_rem, db):
+    print("[Remove Item]")
     card_title = "Tech Hub"
     reprompt_text = global_reprompt
     try:
@@ -268,6 +273,7 @@ def rem_value_from_db(name, quan_to_rem, db):
 
 # returns a list of all items in the inventory
 def list_items(db):
+    print("[List Item]")
     card_title = "List of items in inventory"
     reprompt_text = global_reprompt
     output = 'here is what was found in the tech hub: '
@@ -278,6 +284,7 @@ def list_items(db):
 
 # returns the amount of an item
 def get_item_quantities(name, db):
+    print("[Get Item Quantity]")
     card_title = "List of items in inventory"
     reprompt_text = global_reprompt
     output_text = ""
@@ -294,11 +301,13 @@ def get_item_quantities(name, db):
 # --------------- Events ------------------
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
+    print("[Session Opened]")
     print(
         "on_session_started requestId=" + session_started_request['requestId'] + ", sessionId=" + session['sessionId'])
 
 
 def on_session_ended(session_ended_request, session):
+    print("[Sesssion Closed]")
     print("on_session_ended requestId=" + session_ended_request['requestId'] + ", sessionId=" + session['sessionId'])
     return build_response('Good bye', True)
 
