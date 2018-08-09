@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "phoenix",
+            "invocationName": "tech hub",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -9,7 +9,15 @@
                 },
                 {
                     "name": "AMAZON.CancelIntent",
-                    "samples": []
+                    "samples": [
+                        "bye",
+                        "thank you",
+                        "close session",
+                        "close",
+                        "I'm finished",
+                        "go away",
+                        "close the session"
+                    ]
                 },
                 {
                     "name": "AMAZON.HelpIntent",
@@ -35,7 +43,6 @@
                         "what can you do in the tech hub",
                         "tell me about the tech hub",
                         "tell me about this place",
-                        "what is here",
                         "what goes on in this room",
                         "what is this room",
                         "what is this place",
