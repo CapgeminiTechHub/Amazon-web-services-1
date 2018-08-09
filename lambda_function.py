@@ -147,15 +147,7 @@ def whoCanUseThisPlace():
 def howDoIBookThisRoom():
 
     card_title = "Welcome to the Tech hub"
-    speech_text = "To see upcoming events, ask to see the calendar. To book an event in this room, use Outlook."
-    reprompt_text = global_reprompt
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
-
-# opening/closing times
-def openCloseTimes():
-
-    card_title = "Welcome to the Tech hub"
-    speech_text = "The tech hub is open from nine till five"
+    speech_text = "You can book this room and others using the outlook calendar"
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
@@ -189,7 +181,16 @@ def manageItems():
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
-  
+
+# EventsManager
+def openCloseTimes():
+
+    card_title = "Welcome to the Tech hub"
+    speech_text = "To see upcoming events, ask to see the calendar. To book an event in this room, use Outlook."
+    reprompt_text = global_reprompt
+    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+
 # explains what the tech hub skill can do
 def facilities():
 
@@ -323,8 +324,6 @@ def on_intent(intent_request, session, db, dynamodb):
         return facilities()
     elif intent_name == "InvIntent":
         return close_inv()
-    elif intent_name == "EventsIntent":
-        return manageEvents()
     elif intent_name == "moreInfo":
         return moreInfo()
     elif intent_name == "manageItems":
