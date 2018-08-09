@@ -73,5 +73,7 @@ In response to the latter point, we redesigned the help function to be more comp
 
 This also meant changing some utterances to make sure that there were no clashes. After experimenting a bit we found that 'tech hub' could be used as both the invocation name and in the utterances, which helped the utterances sound more natural.
 
+We also researched how to use cloud watch logs to make it easier to identify errors. To make the cloud watch logs more readable, we added print statements into every intent, so that we could distinguish which intent was activated. We also used the logger library to print a log statement each time an intent was activated. Combined with the information that the alexa web app tracks, we were confidetn that this would allow us to debug any errors.
+
 
 
