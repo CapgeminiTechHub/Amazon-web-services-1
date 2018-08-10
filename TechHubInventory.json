@@ -53,9 +53,11 @@
                     "name": "FacilitiesIntent",
                     "slots": [],
                     "samples": [
+                        "facilities",
+                        "kit",
                         "what facilities are there",
                         "what equipment is there for me to use",
-                        "what equpment is there to use",
+                        "what equipment is there to use",
                         "can i use the equipment here",
                         "what is there to use",
                         "what kit is available",
@@ -178,6 +180,9 @@
                     "name": "HowDoIBookThisRoom",
                     "slots": [],
                     "samples": [
+                        "events scheduled",
+                        "book events",
+                        "events",
                         "can I book event",
                         "how to manage events",
                         "tell me about events",
