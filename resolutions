@@ -1,1 +1,0 @@
-name = sing(intent_request['intent']['slots']['name']['resolutions']['resolutionsPerAuthority'])
