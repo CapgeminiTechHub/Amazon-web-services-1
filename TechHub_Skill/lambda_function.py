@@ -119,9 +119,15 @@ def explanation():
 def fallback():
     print("[Fallback]")
     card_title = "Welcome to the Tech hub"
-    speech_text = "If you need assistance, ask for help."
+    speech_text = "I'm sorry - I didn't catch that. If you need assistance, ask for help."
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
+
+# cancel_and_stop
+def cancel_and_stop():
+    card_title = "Welcome to the Tech hub"
+    speech_text = "Cancelling, Goodbye."
+    return build_response({}, build_speechlet_response(card_title, speech_text, None, True))
 
 
 # explains what the tech hub skill can do
@@ -179,14 +185,6 @@ def manageItems():
                   "followed by the amount and item name.. To list all items in the inventory, " \
                   "ask what's in the inventory.. To hear the quantity of an item, ask how many are " \
                   "followed by the name of the item.. When you're finished remind me to lock the inventory."
-    reprompt_text = global_reprompt
-    return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
-
-#Read calendar
-def readCalendar():
-    print("[Read Calendar]")
-    card_title = "Welcome to the Tech hub"
-    speech_text =
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
 
@@ -315,9 +313,12 @@ def on_session_started(session_started_request, session):
 
 
 def on_session_ended(session_ended_request, session):
-    print("[Sesssion Closed]")
+    print("[Session Closed]")
     print("on_session_ended requestId=" + session_ended_request['requestId'] + ", sessionId=" + session['sessionId'])
-    return build_response('Good bye', True)
+
+    card_title = "Goodbye"
+    speech_text = "Cancelling, Goodbye."
+    return build_response({}, build_speechlet_response(card_title, speech_text, None, True))
 
 
 # identifies which intent is invoked
@@ -349,6 +350,10 @@ def on_intent(intent_request, session, db, dynamodb):
         return howDoIBookThisRoom()
     elif intent_name == "CanAnyoneUseThisPlace":
         return whoCanUseThisPlace()
+    elif intent_name == "AMAZON.StopIntent":
+        return cancel_and_stop()
+    elif intent_name == "AMAZON.CancelIntent":
+        return cancel_and_stop()
     elif intent_name == 'rem_value_from_db':
         name = sing(intent_request['intent']['slots']['name']['value'])
         quan_to_rem = int(intent_request['intent']['slots']['quan_to_rem']['value'])
