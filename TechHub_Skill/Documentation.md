@@ -62,7 +62,7 @@ We had planned to demonstrate our skill on Monday, however we ran into a problem
 On Tuesday we gave a demonstration to Les Frost. From this test, we received the following feedback:
 
 - Change the invocation name from 'phoenix' back to 'tech hub'. The reason given was that users would be likely to call it tech hub and not phoenix, and that most of the intents would still work if tech hub was the invocation name.
-  -- this did require changing the utterances for TechHubExplainedIntent however
+-- this did require changing the utterances for TechHubExplainedIntent however
 - Research how cloud logs can be used to monitor the interactions with the alexa device. This should allow us to find errors with real usage and thus allow us to address the issues.
 - Make the VUI more natural and easier for newcomers
 
