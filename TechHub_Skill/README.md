@@ -35,7 +35,7 @@ Examples of the queries the Tech Hub skill can answer include the following:
 - etc.
 
 As soon as the skill is open, you have 2 options:
-1. Use help function to find ot the possible phrases you can ask or..
+1. Use help function to find out the possible phrases you can ask or..
 2. Directly say your phrase (good if you already know the functionalities available)
 
 ![Diagram](https://github.com/OnwardPyrite/Amazon-web-services/blob/master/TechHub_Skill/diagram-alexa.PNG)
