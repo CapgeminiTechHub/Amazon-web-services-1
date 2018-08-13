@@ -62,7 +62,7 @@ will prompt Alexa to tell the user the range of functionalities available within
 
 # 3. More Info
 
-This intent acts as part two of the help function. it is activated by utterances such as:
+This intent acts as part one of the help function. it is activated by utterances such as:
 
 - "more options"
 - "other options"
@@ -102,7 +102,7 @@ These questions and similar questions will prompt Alexa to tell the user about t
 
 # 4. Events
 
-The following utterances:
+This intent acts as part two of the help function. it is activated by utterances such as:
 
 - "what events are on?"
 - "How do I book events"
@@ -111,7 +111,7 @@ will allow Alexa to respond with the corresponding details.
 
 # 5. Inventory Management
 
-The inventory keeps track of the quantity of various items in the Tech Hub. Users can add/remove and find out the number of an item currently in the Tech Hub.
+The inventory keeps track of the quantity of various items in the Tech Hub. Users can add/remove and find out the number of an item currently in the Tech Hub. This intent acts as part three of the help function.
 
 Supported items include:    "desks", "mice", "keyboards", "monitors", "chargers", "raspberry pies", "brick pies", "screens", "mind storms set", "raspberry pie camera", "brick pie", "keyboard", "mouse", "desk", "laptop", "charger", "raspberry pie", "screen"
 
