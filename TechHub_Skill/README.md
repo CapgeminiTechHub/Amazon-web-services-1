@@ -10,17 +10,17 @@
 
 ####  3. More Info
     - Explain Tech Hub
-    - Opening and Closing times
+    - Opening & Closing times
     - Facilities
-
-####  4. Inventory Management
+####  4. Events & Bookings
+####  5. Inventory Management
     - Quantity
     - Add item(s)
     - Remove item(s)
     - List items
     - Close Inventory
 
-####  5. Closing the skill
+####  6. Closing the skill
 
 # Overview
 
@@ -58,36 +58,6 @@ Saying phrases such as:
 
 will prompt Alexa to tell the user the range of functionalities available within the skill.
 
-# Explain Tech Hub
-
-Asking questions such as:
-
-- "Who are you?"
-- "What goes on in this room?"
-- "What is this place?"
-- "Tell me about the tech hub."
-
-as well as others, will cause Alexa to respond by explaining the purpose of the Tech Hub.
-
-# Opening and Closing times
-
-Asking questions such as:
-
-- "what are the opening times"
-- "What are the closing times"
-
-as well as others, will cause Alexa to respond with the opening/closing times.
-
-# Help
-
-If the skill is invoked but no intent is uttered, the launch request prompts the user to ask for help.
-
-- "help"
-- "help me"
-
-Will prompt Alexa to respond with a list of the functions Tech Hub can do. It also offers more options for the user to explore.
-
-
 # More Info
 
 This intent acts as part two of the help function. it is activated by utterances such as:
@@ -98,17 +68,27 @@ This intent acts as part two of the help function. it is activated by utterances
 
 Like the help intent, it leaves the session open so that the user can activate another intent rather than having to reinvoke the skill.
 
+## Explain Tech Hub
 
-# Events
+Asking questions such as:
 
-The following utterances:
+- "Who are you?"
+- "What goes on in this room?"
+- "What is this place?"
+- "Tell me about the tech hub."
 
-- "what events are on?"
-- "How do I book events"
+as well as others, will cause Alexa to respond by explaining the purpose of the Tech Hub.
 
-will allow Alexa to respond with the corresponding details.
+## Opening & Closing times
 
-# Facilities
+Asking questions such as:
+
+- "what are the opening times"
+- "What are the closing times"
+
+as well as others, will cause Alexa to respond with the opening/closing times.
+
+## Facilities
 
 Asking questions such as:
 
@@ -118,6 +98,14 @@ Asking questions such as:
 
 These questions and similar questions will prompt Alexa to tell the user about the facilities available i.e number of computers in the area, the number of desks etc.
 
+# Events
+
+The following utterances:
+
+- "what events are on?"
+- "How do I book events"
+
+will allow Alexa to respond with the corresponding details.
 
 # Inventory Management
 
