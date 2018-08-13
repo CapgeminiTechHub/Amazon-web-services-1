@@ -4,12 +4,17 @@
 ####  0. Overview
 ####  1. Opening the skill
 ####  2. Help
-####  3. Explain Tech Hub
-####  4. Opening and Closing times
-####  5. Functions
-####  6. Facilities
-####  7. Inventory
-####  8. Closing
+####  3. More Info
+##### Explain Tech Hub
+##### Opening and Closing times
+##### Facilities
+####  4. Inventory Management
+##### Quantity
+##### Add item(s)
+##### Remove item(s)
+##### List items
+##### Close Inventory
+####  5. Closing the skill
 
 # Overview
 
@@ -115,7 +120,7 @@ The inventory keeps track of the quantity of various items in the Tech Hub. User
 Supported items include:    "desks", "mice", "keyboards", "monitors", "chargers", "raspberry pies", "brick pies", "screens", "mind storms set", "raspberry pie camera", "brick pie", "keyboard", "mouse", "desk", "laptop", "charger", "raspberry pie", "screen"
 
 
-## Viewing Inventory
+## Quantity
 
 This intent can be activated by saying the following phrases:
 
@@ -149,7 +154,7 @@ This intent can be activated by saying the following phrases:
 This intent does not list the number of items, just the different types of items.
 
 
-## Closing the Inventory
+## Close Inventory
 
 This intent is activated with utterances suchs as:
 
@@ -159,4 +164,12 @@ This intent is activated with utterances suchs as:
 - "shut the inventory"
 
 This intent fullfills the purpose of closing the session for inventory management.
+
+# Closing the skill
+
+Saying the following phrases will cause the skill to close:
+
+- "cancel"
+- "goodbye"
+- "thank you"
 
