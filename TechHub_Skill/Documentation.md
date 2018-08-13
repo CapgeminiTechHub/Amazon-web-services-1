@@ -73,7 +73,11 @@ In response to the latter point, we redesigned the help function to be more comp
 
 This also meant changing some utterances to make sure that there were no clashes. After experimenting a bit we found that 'tech hub' could be used as both the invocation name and in the utterances, which helped the utterances sound more natural.
 
-We also researched how to use cloud watch logs to make it easier to identify errors. To make the cloud watch logs more readable, we added print statements into every intent, so that we could distinguish which intent was activated. We also used the logger library to print a log statement each time an intent was activated. Combined with the information that the alexa web app tracks, we were confidetn that this would allow us to debug any errors.
+We also researched how to use cloud watch logs to make it easier to identify errors. To make the cloud watch logs more readable, we added print statements into every intent, so that we could distinguish which intent was activated. We also used the logger library to print a log statement each time an intent was activated. Combined with the information that the alexa web app tracks, we were confident that this would allow us to debug any errors.
+
+# Wrapping Up
+
+After a couple of days testing the new intents, we found that there was still one major error. The Skill would not always properly close. To remedy this, we implemented python code to explicitly handle the stop and close intents. This allowed us to extent the built-in utterances. The Skill now responded to 'Thank you' and 'goodbye' by closing the session and saying 'bye' to the user. This made the SKill feel more human-like.
 
 
 
