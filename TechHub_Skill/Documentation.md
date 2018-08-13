@@ -35,21 +35,17 @@ We concluded to follow the first solution, and decided to work through the desig
 
 # Meeting on 30/07/2018
 
-We used an echo Dot device to test out intents. The majority of the utterances we tested were successful.
-However, as we were using the alexa device, we felt that our intents did not 'flow' as naturally as human speech. We were having to say the invocation name 'tech hub' before saying each utterance. Otherwise the utterance was not always recognised.
+We used an echo Dot device to test out intents, using 'tech hub' as the invocation name at this point. The majority of the utterances we tested were successful.
 
-Some intents would work using the intent name first ie. 'tell me about facilities in the tech hub'. Whilst others did not 'tell me about the tech hub'. This is because certain words are considered 'optional', and so cannot be used for intent utterances on their own. In the above example, 'about the' was the intended utterance. However, these words are considered optional by the alexa, since they exist only to make sentences easier for humans to say. Hence, they cannot be contained in utterances. Given this issue, we intially moved away from using 'tech hub' as the invocation name, only to return to it when it became clear it was the benefits outweighed the disadvantages.
+However we were having to say the invocation name 'tech hub' before saying each utterance. Otherwise the utterance was not always recognised. Some intents would work using the intent name first ie. 'tell me about facilities in the tech hub'. Whilst others did not 'tell me about the tech hub'. This is because certain words are considered 'optional', and so cannot be used for intent utterances on their own. In the above example, 'about the' was the intended utterance. However, these words are considered optional by the alexa, since they exist only to make sentences easier for humans to say. Hence, they cannot be contained in utterances. Given this issue, we intially moved away from using 'tech hub' as the invocation name.
 
+Testing with a different invocation name such as 'helper' gave us a higher sucess rate. As a result of this testing, we had a discussion and concluded to change the invocation to 'Phoenix'. We only returned to using 'tech hub' as the invocation name weeks later, when it became clear that the benefits outweighed the disadvantages.
 
-By using 'Tech Hub' as the invocation name, questions such as 'tell me about the tech hub' meant that the only words to be used as an uttterance were 'about' and 'the'. This was not a strong enough utterance for Alexa to understand which intent was supposed to be invoked.
-
-Testing with a different invocation name such as 'helper' gave us a higher sucess rate. As a result of this testing, we had a discussion and concluded to change the invocation to 'Phoenix'.
-
-At this point our next step was to add more utterances and to keep the session open for certain intents to make interacting wiht the skill feel more conversational.
+At this point our next step was to add more utterances and to keep the session open for certain intents to make interacting with the skill feel more conversational.
 
 # The Following Week
 
-We continued to refine the skill over the next couple of weeks. We considered using dialog.delegate to create multi dialog interactions. However, this functionality was taking up a lot of resources, and so in the end we decided to forgo it.
+We continued to refine the skill over the next couple of weeks. We considered using dialog.delegate to create multi dialog interactions. However, this functionality was taking up a lot of time to implement, and so in the end we decided to forgo it.
 
 Instead we implemented some new intents to give the skill more functionality. We added intents to close inventory management sessions, to inform users of opening times, to explain how to book rooms in the tech hub, and who can use the tech hub.
 
@@ -65,7 +61,7 @@ We had planned to demonstrate our skill on Monday, however we ran into a problem
 
 On Tuesday we gave a demonstration to Les Frost. From this test, we received the following feedback:
 
-- Change the invocation name from 'Phoenix' back to 'Tech Hub'. The reason given was that users would be likely to call it tech hub and not phoenix, and that most of the intents would still work if tech hub was the invocation name.
+- Change the invocation name from 'phoenix' back to 'tech hub'. The reason given was that users would be likely to call it tech hub and not phoenix, and that most of the intents would still work if tech hub was the invocation name.
   -- this did require changing the utterances for TechHubExplainedIntent however
 - Research how cloud logs can be used to monitor the interactions with the alexa device. This should allow us to find errors with real usage and thus allow us to address the issues.
 - Make the VUI more natural and easier for newcomers
