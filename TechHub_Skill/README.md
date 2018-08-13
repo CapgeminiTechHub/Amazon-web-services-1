@@ -22,7 +22,7 @@
 
 ####  6. Closing the skill
 
-# Overview
+# 0. Overview
 
 The Tech Hub skill allows users to walk into the @Phoenix Tech Hub at Capgemini and ask questions about the tech hub. The skill responds to a variety of queries. 
 
@@ -38,7 +38,7 @@ As soon as the skill is open, you have 2 options:
 1. Use help function to find ot the possible phrases you can ask or..
 2. Directly say your phrase (good if you already know the functionalities available)
 
-# Opening the skill
+# 1. Opening the skill
 
 The invocation name for the Tech Hub skill is 'Tech Hub'.
 Saying phrases such as:
@@ -49,7 +49,7 @@ Saying phrases such as:
 
 will open the skill and perform an intent if applicable. Intents can be activated at the same time as, or after opening the skill.
 
-# Help
+# 2. Help
 
 Saying phrases such as:
 
@@ -58,7 +58,7 @@ Saying phrases such as:
 
 will prompt Alexa to tell the user the range of functionalities available within the skill.
 
-# More Info
+# 3. More Info
 
 This intent acts as part two of the help function. it is activated by utterances such as:
 
@@ -98,7 +98,7 @@ Asking questions such as:
 
 These questions and similar questions will prompt Alexa to tell the user about the facilities available i.e number of computers in the area, the number of desks etc.
 
-# Events
+# 4. Events
 
 The following utterances:
 
@@ -107,7 +107,7 @@ The following utterances:
 
 will allow Alexa to respond with the corresponding details.
 
-# Inventory Management
+# 5. Inventory Management
 
 The inventory keeps track of the quantity of various items in the Tech Hub. Users can add/remove and find out the number of an item currently in the Tech Hub.
 
@@ -159,7 +159,7 @@ This intent is activated with utterances suchs as:
 
 This intent fullfills the purpose of closing the session for inventory management.
 
-# Closing the skill
+# 6. Closing the skill
 
 Saying the following phrases will cause the skill to close:
 
