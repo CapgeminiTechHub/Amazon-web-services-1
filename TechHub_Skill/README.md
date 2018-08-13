@@ -1,15 +1,15 @@
 # Amazon Alexa - Tech Hub Skill
 
 # Contents
-####  Overview
-####  Opening the skill
-####  Help
-####  Explain Tech Hub
-####  Opening and Closing times
-####  Functions
-####  Facilities
-####  Inventory
-####  Closing
+####  0. Overview
+####  1. Opening the skill
+####  2. Help
+####  3. Explain Tech Hub
+####  4. Opening and Closing times
+####  5. Functions
+####  6. Facilities
+####  7. Inventory
+####  8. Closing
 
 # Overview
 
