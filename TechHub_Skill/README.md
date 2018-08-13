@@ -1,14 +1,15 @@
 # Amazon Alexa - Tech Hub Skill
 
 # Contents
-#### 0. Overview
-#### 1. Opening the skill
-#### 2. Explain Tech Hub
-#### 3. Opening and Closing times
-#### 3. Functions
-#### 4. Facilities
-#### 5. Inventory
-
+####  Overview
+####  Opening the skill
+####  Help
+####  Explain Tech Hub
+####  Opening and Closing times
+####  Functions
+####  Facilities
+####  Inventory
+####  Closing
 
 # Overview
 
@@ -22,6 +23,9 @@ Examples of the queries the Tech Hub skill can answer include the following:
 - Tell me what's in the inventory
 - etc.
 
+As soon as the skill is open, you have 2 options:
+1. Use help function to find ot the possible phrases you can ask or..
+2. Directly say your phrase (good if you already know the functionalities available)
 
 # Opening the skill
 
@@ -34,6 +38,14 @@ Saying phrases such as:
 
 will open the skill and perform an intent if applicable. Intents can be activated at the same time as, or after opening the skill.
 
+# Help
+
+Saying phrases such as:
+
+- "Help"
+- "Help me"
+
+will prompt Alexa to tell the user the range of functionalities available within the skill.
 
 # Explain Tech Hub
 
