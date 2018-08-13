@@ -16,29 +16,30 @@ We initially developed intents separately because Luke was using java 8 and Jaki
 
 This was our first major discussion about the use of the skill.
 
-At this point we had  a working prototype. We discussed 3 separate routes to go down to make user interaction easier
+At this point we had a working prototype. We discussed 3 separate routes to go down to make user interaction easier:
 
 
 1)	Use Tech Hub as the invocation name. This avoids using a secondary name for invocation such as assistant or helper. However, the downside is that not all intents flow well if the invocation name has to be used before the intent utterance. IE ‘ask the tech hub to tell me about the tech hub’.
 
-Solution: upon further investigation, invocation name can be spoke after intent utterance. IE ‘tell me about the Tech Hub’
-We decided that this was the most intuitive of the three solutions and so continued down this route, however we only found limited success upon testing this solution. Some intents would work using the intetn name first IE 'tell me about facilities in the tech hub'. Wjilst others did not 'tell me about the tech hub'. This is because certain words are considered 'optional', and so cannot be used for intent utteracnes on their own. In the above example, 'about the' was the intended utterance. However, these words are considered optional by the alexa, since they exist only to make sentences easier for humans to say. Hence, they cannot be used as part of utterances. 
+Solution: upon further investigation, we found that the invocation name can be spoke after the intent utterance. IE ‘tell me about the Tech Hub’.We decided that this was the most intuitive of the three solutions and so continued down this route. However at first we only found limited success upon testing this solution. 
 
-Given this issue, we intially moved away from using 'tech hub' as the invocation name, only to return to it when it became clear it was the most intuitive option.
-
-
-2)	Indirectly invoke the skill IE ‘tell me about facilities’ Then, as long as the skill includes a CanFulfillIntentRequest SPI, the Alexa works out which skill is being invoked. However, this was only available in US locals at the time of building.  
+2)	Indirectly invoke the skill IE ‘tell me about facilities’ Then, as long as the skill includes a CanFulfillIntentRequest SPI, the Alexa works out which skill is being invoked. However, this was only available in US locals at the time of building. We didn't consider this route any furthur.  
 
 
-3)	Use a secondary name like ‘helper’ or ‘assistant’ to invoke the skill. This allows the skill to be asked about the Tech Hub in context IE ‘ask helper about to tell me about the Tech Hub’. However, including a random name for invocation feels inefficient, and takes the focus off the Tech Hub. There is an argument that giving an Alexa skill a persona may add to the user experience, however this is traded for adding an unnecessary entity into every conversation about the Tech Hub.
+3)	Use a secondary name like ‘helper’ or ‘assistant’ to invoke the skill. This allows the skill to be asked about the Tech Hub in context ie. ‘ask helper to tell me about the tech hub’. However, including a random name for invocation feels inefficient, and takes the focus off the Tech Hub. There is an argument that giving an Alexa skill a persona may add to the user experience, however this is traded for adding an unnecessary entity into every conversation about the Tech Hub.
+
+We did intially go down this route, using 'phoenix' as the invocation name. And although this worked for development, in testing it was not recieved well. 
 
 We concluded to follow the first solution, and decided to work through the design process found at https://developer.amazon.com/designing-for-voice/design-process/
 
 
 # Meeting on 30/07/2018
 
-We used an actual Alexa device  to test out intents. The majority of the utterances we tested were successful.
+We used an echo Dot device to test out intents. The majority of the utterances we tested were successful.
 However, as we were using the alexa device, we felt that our intents did not 'flow' as naturally as human speech. We were having to say the invocation name 'tech hub' before saying each utterance. Otherwise the utterance was not always recognised.
+
+Some intents would work using the intent name first ie. 'tell me about facilities in the tech hub'. Whilst others did not 'tell me about the tech hub'. This is because certain words are considered 'optional', and so cannot be used for intent utterances on their own. In the above example, 'about the' was the intended utterance. However, these words are considered optional by the alexa, since they exist only to make sentences easier for humans to say. Hence, they cannot be contained in utterances. Given this issue, we intially moved away from using 'tech hub' as the invocation name, only to return to it when it became clear it was the benefits outweighed the disadvantages.
+
 
 By using 'Tech Hub' as the invocation name, questions such as 'tell me about the tech hub' meant that the only words to be used as an uttterance were 'about' and 'the'. This was not a strong enough utterance for Alexa to understand which intent was supposed to be invoked.
 
