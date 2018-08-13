@@ -38,6 +38,8 @@ As soon as the skill is open, you have 2 options:
 1. Use help function to find ot the possible phrases you can ask or..
 2. Directly say your phrase (good if you already know the functionalities available)
 
+![alt text](https://raw.githubusercontent.com/OnwardPyrite/Amazon-web-services/blob/master/TechHub_Skill/diagram-alexa.PNG)
+
 # 1. Opening the skill
 
 The invocation name for the Tech Hub skill is 'Tech Hub'.
