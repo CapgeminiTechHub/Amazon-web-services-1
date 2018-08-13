@@ -1,19 +1,25 @@
 # Amazon Alexa - Tech Hub Skill
 
 # Contents
+
 ####  0. Overview
+
 ####  1. Opening the skill
+
 ####  2. Help
+
 ####  3. More Info
     - Explain Tech Hub
     - Opening and Closing times
     - Facilities
+
 ####  4. Inventory Management
     - Quantity
     - Add item(s)
     - Remove item(s)
     - List items
     - Close Inventory
+
 ####  5. Closing the skill
 
 # Overview
