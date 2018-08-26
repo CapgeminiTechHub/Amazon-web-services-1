@@ -1,7 +1,7 @@
 # Introduction
 
 The Tech Hub Alexa skill was initially built by Alex Pettifer, Jakir Ashraf and Luke Power, 
-and then developed Jakir and Luke. 
+and then developed by Jakir and Luke. 
 
 This README outlines our development process, and attempts to justify the design of the skill. 
 
