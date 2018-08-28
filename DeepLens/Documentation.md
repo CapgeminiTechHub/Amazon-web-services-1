@@ -20,11 +20,24 @@ Once the device was registered, we tried to change the internet connection to a 
 
 We spoke to our manager, Les Frost, about this issue. Les recommended that we speak to Jamie Gibbs. Jamie had previous experience with the DeepLens device and was able to give us valuable insight.
 
+Upon accessing the device directly, using a mini hmdi cable, a mouse and a keyboard, Jamie was able to locate the issue. Some of the packages on the device were missing or not working properly. Upon unsuccessful attempts to reinstall the affected software, Jamie recommended that we factory reset of the device.
+
+This proved to be no easy feat either. Using the instruction below, we were able to reset the device.
+https://s3.amazonaws.com/deeplens-public/factory-restore/DeepLens_System_Restore_Instruction.pdf
+
+However, some advice:
+
+The deeplens doesn't have enough storage to store the unzip packages you'll have to download. Hence I would not recommend using the deeplens to copy the files to the partitioned drive.
+
+I would also recommend you make the ISO file bootable on an unpartitioned usb stick (although format it to FAT32). And then reduce the size of the partition using gparted. Then format the rest of the drive as a second, NTFS partition.
+
+We found more success using rufus on windows to make the ISO bootable, tha unetbootin on Linux.
+
+Make sure that your BIOS screen is in EFI mode (although cosmetically it won't make any difference, the ISO only works on an EFI system). 
 
 
-hotspot
-ethernet adapter
-wired & wireless connection
+
+
 
 //iso
 //reinstall
