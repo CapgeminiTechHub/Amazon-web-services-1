@@ -27,18 +27,18 @@ https://s3.amazonaws.com/deeplens-public/factory-restore/DeepLens_System_Restore
 
 However, some advice:
 
-The deeplens doesn't have enough storage to store the unzip packages you'll have to download. Hence I would not recommend using the deeplens to copy the files to the partitioned drive.
+The Deeplens doesn't have enough storage to store the unzip packages you'll have to download. Hence I would not recommend using the deeplens to copy the files to the partitioned drive.
 
 I would also recommend you make the ISO file bootable on an unpartitioned usb stick (although format it to FAT32). And then reduce the size of the partition using gparted. Then format the rest of the drive as a second, NTFS partition.
 
-We found more success using rufus on windows to make the ISO bootable, tha unetbootin on Linux.
+We found more success using rufus on windows to make the ISO bootable, than unetbootin on Linux.
 
 Make sure that your BIOS screen is in EFI mode (although cosmetically it won't make any difference, the ISO only works on an EFI system). 
 
+We were able to eventually reset the Deeplens, however it took about a week, due to the problems hinted at above.
+
+From here on we used examples build by others to learn how a Deeplens project works.
 
 
 
 
-//iso
-//reinstall
-//partitioning
