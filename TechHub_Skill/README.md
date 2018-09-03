@@ -12,7 +12,9 @@
     - Tech Hub Details
     - Opening & Closing times
     - Facilities
+    
 ####  4. Events & Bookings
+
 ####  5. Inventory Management
     - Quantity
     - Add item(s)
@@ -21,6 +23,7 @@
     - Close Inventory
 
 ####  6. Closing the skill
+
 
 # 0. Overview
 
@@ -67,24 +70,22 @@ Represented visually:
 
 # 3. More Info
 
-This intent acts as part one of the help function. it is activated by utterances such as:
+This intent is the first branch of the root help function. it is activated by utterances such as:
 
 - "more options"
 - "other options"
 - "more info"
 
-Like the help intent, it leaves the session open so that the user can activate another intent rather than having to reinvoke the skill.
+The main difference between these branching functions and the main help function, is that these sessions do not leave the session open. If the user wants to ask Alexa about one of the other intents, they must reinvoke the skill.
 
-## Explain Tech Hub
+## More details
 
 Asking questions such as:
 
-- "Who are you?"
-- "What goes on in this room?"
-- "What is this place?"
-- "Tell me about the tech hub."
+- "give me more details"
+- "tell me more details about the tech hub"
 
-as well as others, will cause Alexa to respond by explaining the purpose of the Tech Hub.
+will prompt Alexa to respond woth a detailed explanation of the Tech Hub.
 
 ## Opening & Closing times
 
