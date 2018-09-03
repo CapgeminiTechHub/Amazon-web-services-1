@@ -9,7 +9,7 @@
 ####  2. Help
 
 ####  3. More Info
-    - Explain Tech Hub
+    - Tech Hub Details
     - Opening & Closing times
     - Facilities
 ####  4. Events & Bookings
@@ -24,25 +24,18 @@
 
 # 0. Overview
 
-The Tech Hub skill allows users to walk into the @Phoenix Tech Hub at Capgemini and ask questions about the tech hub. The skill responds to a variety of queries. 
+The Tech Hub skill allows users to walk into the Capgemini Tech Hub @Phoenix and ask an alexa device about the Tech Hub. 
 
-Examples of the queries the Tech Hub skill can answer include the following:
+Examples of the questions the Tech Hub skill can answer include the following:
 
-- Tells me what the Tech Hub is
-- Tells me what you can do
-- Tells me about the facilities available in the Tech Hub
+- Tell me what the opening times for the tech hub are
+- Tell me about the facilities available in the Tech Hub
 - Tell me what's in the inventory
 - etc.
 
-As soon as the skill is open, you have 2 options:
-1. Use help function to find out the possible phrases you can ask or..
-2. Directly say your phrase (good if you already know the functionalities available)
-
-![Diagram](https://github.com/OnwardPyrite/Amazon-web-services/blob/master/TechHub_Skill/diagram-alexa.PNG)
-
 # 1. Opening the skill
 
-The invocation name for the Tech Hub skill is 'Tech Hub'.
+The skill must first be invoked, using the invocation name 'Tech Hub'.
 Saying phrases such as:
 
 - "Open Tech Hub"
@@ -51,14 +44,26 @@ Saying phrases such as:
 
 will open the skill and perform an intent if applicable. Intents can be activated at the same time as, or after opening the skill.
 
+After the skill has been invoked, the skill says a welcome greeting. At this point the conversation will follow one of two routes:
+1. The user will activate the help function as prompted. This will allow an unexperiecned user to learn about the functions the skill provides
+2. The User will directly speak an utterance becuase they know which intent they want to activate
+
+
+
 # 2. Help
+
+The help intent is the first part of a 2 stage process to inform a user about the actions the skill can perform for them.  
 
 Saying phrases such as:
 
 - "Help"
 - "Help me"
 
-will prompt Alexa to tell the user the range of functionalities available within the skill.
+will prompt Alexa to highlight 3 furthur intents which can be activated right after. These intents are: More Info; Events; and Inventory Management. These 3 options branch out to cover all the intents of the skill.
+
+Represented visually:
+
+![Diagram](https://github.com/OnwardPyrite/Amazon-web-services/blob/master/TechHub_Skill/diagram-alexa.PNG)
 
 # 3. More Info
 
