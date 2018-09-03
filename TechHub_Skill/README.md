@@ -85,41 +85,41 @@ Asking questions such as:
 - "give me more details"
 - "tell me more details about the tech hub"
 
-will prompt Alexa to respond woth a detailed explanation of the Tech Hub.
+will prompt Alexa to respond with a detailed explanation of the Tech Hub.
 
 ## Opening & Closing times
 
 Asking questions such as:
 
-- "what are the opening times"
-- "What are the closing times"
+- "what are the opening times?"
+- "What are the closing time?"
 
-as well as others, will cause Alexa to respond with the opening/closing times.
+as well as others, will prompt Alexa to respond with the opening and closing times.
 
 ## Facilities
 
 Asking questions such as:
 
-- "What equipment do you have"
+- "What equipment do you have?"
 - "What facilities are available?"
 - "What kit is available?"
 
-These questions and similar questions will prompt Alexa to tell the user about the facilities available i.e number of computers in the area, the number of desks etc.
+will prompt Alexa to tell the user about the available facilites in the Tech Hub (this is different to the inventory).
 
 # 4. Events
 
-This intent acts as part two of the help function. it is activated by utterances such as:
+This intent is the second branch. it is activated by utterances such as:
 
 - "what events are on?"
-- "How do I book events"
+- "How do I book events?"
 
-will allow Alexa to respond with the corresponding details.
+which will prompt Alexa to respond with the corresponding details. Rather than listing more intents to be activated afterwards, this intent delivers the relevant information right away. 
 
 # 5. Inventory Management
 
-The inventory keeps track of the quantity of various items in the Tech Hub. Users can add/remove and find out the number of an item currently in the Tech Hub. This intent acts as part three of the help function.
+The 3rd branch from the root help function. The inventory keeps track of the quantity of various items in the Tech Hub. Users can add/remove items, as well as querying how many of one item is in the database. Alternatively, they can ask for a list of all the items in the database.
 
-Supported items include:    "desks", "mice", "keyboards", "monitors", "chargers", "raspberry pies", "brick pies", "screens", "mind storms set", "raspberry pie camera", "brick pie", "keyboard", "mouse", "desk", "laptop", "charger", "raspberry pie", "screen"
+Supported items include:    "desks", "mice", "keyboards", "monitors", "chargers", "raspberry pies", "brick pies", "raspberry pie cameras", "brick pies", "laptops".
 
 
 ## Quantity
