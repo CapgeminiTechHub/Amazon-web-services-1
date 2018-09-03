@@ -107,7 +107,7 @@ def handle_session_end_request():
 def explanation():
     print("[Explain]")
     card_title = "Welcome to the Tech hub"
-    speech_text = "The Tech Hub is a place of innovation. We believe that technology is worth sharing, which is why we"\
+    speech_text = "This room is the Tech Hub, it is a place of innovation. In the Tech Hub, we believe that technology is worth sharing, which is why we"\
                   " explore new ways to use emerging tech. Current projects include developing skills for Alexa and"\
                   " Amazon Deep-lens, as well as using rasberry pies in creative experiments. Tweet-us at hash tag " \
                   "Tech-Hub."
@@ -171,7 +171,7 @@ def close_inv():
 def moreInfo():
     print("[More Info]")
     card_title = "Welcome to the Tech hub"
-    speech_text = "I can tell you about the tech hub. I can tell you about facilities available and " \
+    speech_text = "Hi, I can give you more details about myself. I can tell you about facilities available and " \
                   "our opening and closing times."
     reprompt_text = global_reprompt
     return build_response({}, build_speechlet_response(card_title, speech_text, reprompt_text, True))
