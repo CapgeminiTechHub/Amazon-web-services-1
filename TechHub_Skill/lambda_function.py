@@ -4,6 +4,7 @@
 from __future__ import print_function
 import boto3
 import logging
+import inflect
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -56,7 +57,7 @@ def build_response(session_attributes, speechlet_response):
 # ===========================
 def sing(string):
 
-    import inflect
+    # import inflect
     p = inflect.engine()
     words = string.split(' ')
     last_word = words.pop(len(words) - 1)
@@ -74,7 +75,7 @@ def sing(string):
 # ===========================
 def plu(string, count=2):
 
-    import inflect
+    # import inflect
     p = inflect.engine()
     return p.plural(string, count)
 
@@ -220,26 +221,18 @@ def add_value_to_db(name, quan_to_add, db):
         db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
                        UpdateExpression=' SET quantity = :newquantity ',
                        ExpressionAttributeValues={':newquantity': {'N': str(quantity + quan_to_add)}})
-        if quantity + quan_to_add > 1 & quan_to_add > 1:
+        if quantity + quan_to_add > 1 & quan_to_add != 1:
             output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + \
                      " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
-        elif quantity + quan_to_add > 1 & quan_to_add <= 1:
-            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + \
-                     " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
-        elif quantity + quan_to_add < 1 & quan_to_add == 1:
+        elif quantity + quan_to_add > 1 & quan_to_add == 1:
             output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + \
                      " There are now %s %s in the inventory" % (quantity + quan_to_add, plu(name))
         else:
-            output = "I have added %s %s to the inventory. " % (quan_to_add, plu(name)) + \
+            output = "I have added %s %s to the inventory. " % (quan_to_add, sing(name)) + \
                      " There is now %s %s in the inventory" % (quantity + quan_to_add, sing(name))
-    except:
-        db.update_item(TableName='TechHubInventory', Key={'name': {'S': name}},
-                       UpdateExpression=' SET quantity = :newquantity ',
-                       ExpressionAttributeValues={':newquantity': {'N': str(quan_to_add)}})
-        if quan_to_add + quantity > 1:
-            output = "There are now %s %s in the inventory" % (quan_to_add, plu(name))
-        else:
-            output = "There is now %s %s in the inventory" % (quan_to_add, plu(name))
+
+    except Exception:
+        output = "sorry, this item is not supported."
 
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
@@ -266,13 +259,13 @@ def rem_value_from_db(name, quan_to_rem, db):
                 output = "I have removed %s %s from the inventory. " %(quan_to_rem, sing(name)) + \
                          " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
             else:
-                output = "I have removed %s %s from the inventory. " % (quan_to_rem, plu(name)) + \
-                         " currently there is %s %s" % (quantity - quan_to_rem, sing(name))
+                output = "I have removed %s %s from the inventory. " % (quan_to_rem, sing(name)) + \
+                         " currently there are %s %s" % (quantity - quan_to_rem, plu(name))
 
         else:
             output = "There are not enough %s to remove that many" % plu(name)
     except Exception:
-        output = "Item does not exist"
+        output = "sorry, this item is not supported."
 
     return build_response({}, build_speechlet_response(card_title, output, reprompt_text, False))
 
@@ -293,13 +286,12 @@ def get_item_quantities(name, db):
     print("[Get Item Quantity]")
     card_title = "List of items in inventory"
     reprompt_text = global_reprompt
-    output_text = ""
 
     try:
         output = db.get_item(TableName='TechHubInventory', Key={'name': {'S': name}})
         output_text = "there are %s %s in the inventory" % (output['Item']['quantity']['N'], plu(name))
     except Exception:
-        output_text = "the requested item was not found"
+        output_text = "Sorry, something went wrong when I tried to access the inventory."
 
     return build_response({}, build_speechlet_response(card_title, output_text, reprompt_text, False))
 
