@@ -119,7 +119,9 @@ which will prompt Alexa to respond with the corresponding details. Rather than l
 
 The 3rd branch from the root help function. The inventory keeps track of the quantity of various items in the Tech Hub. Users can add/remove items, as well as querying how many of one item is in the database. Alternatively, they can ask for a list of all the items in the database.
 
-Supported items include:    "desks", "mice", "keyboards", "monitors", "chargers", "raspberry pies", "brick pies", "raspberry pie cameras", "brick pies", "laptops".
+Supported items include:   "pens",  "post-it notes", "chromecasts", "taggers", "echo dots", "laptops", "mice", "keyboards", "monitors", "chargers", "raspberry pies",  "t-shirts"
+
+If the user attempts to add an unsupported item to the inventory, they will recieve an error message.
 
 
 ## Quantity
@@ -128,6 +130,8 @@ This intent can be activated by saying the following phrases:
 
 - "How many [item] do we have?"
 - "How many [item] are in the inventory?"
+
+This returns the amount of one specific item in the inventory, the quantity may be zero but not negative.
 
 
 ## Adding Item to Inventory
@@ -138,6 +142,7 @@ This intent can be activated by saying the following phrases:
 - "Add [quantity] [item] to the tech hub" 
 - "Add [quantity] [item] to the Inventory"
 
+Both slots must be filled for this intent to activate correctly. The Alexa confirms the quantity and name of the item, as well as the new total.
 
 ## Removing Item from Inventory
 
@@ -147,13 +152,15 @@ This intent can be activated by saying the following phrases:
 - "Remove [quantity] [item] from the tech hub" 
 - "Remove [quantity] [item] from the Inventory"
 
+As above, both slots must be filled for this intent to activate correctly. The Alexa confirms the quantity and name of the item, as well
+as the new total.
 
 ## Listing All Items in Inventory
 
 - "What is in the inventory"
 - "What do we have"
 
-This intent does not list the number of items, just the different types of items.
+This intent does not list the number of items, just all the different types of items.
 
 
 ## Close Inventory
@@ -165,11 +172,11 @@ This intent is activated with utterances suchs as:
 - "lock the inventory"
 - "shut the inventory"
 
-This intent fullfills the purpose of closing the session for inventory management.
+This intent fullfills the purpose of closing the session for inventory management. However it works at any time, whether in inventory management or not.
 
 # 6. Closing the skill
 
-Saying the following phrases will cause the skill to close:
+Saying the following phrases will cause the skill to close midsession, its most useful after accidentally activating an intent.
 
 - "cancel"
 - "goodbye"
