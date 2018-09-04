@@ -1,25 +1,23 @@
 # Introduction
 
-The Tech Hub Alexa skill was initially built by Alex Pettifer, Jakir Ashraf and Luke Power, 
-and then developed by Jakir and Luke. 
+The Tech Hub Alexa skill was developed by Jakir Ashraf and Luke Power, with intial help from Alex Pettifer. 
 
-This README outlines our development process, and attempts to justify the design of the skill. 
+This README outlines our development process, and attempts to rationalise the design of the skill. 
 
-We began work for the skill on the 16th July 2018. For the first week we messed around with the technology, getting an idea of how skills are built. We developed some initial intents separately, and then combined them into a single python file. 
+We began work for the skill on the 16th July 2018. For the first week we messed around with the software, getting an idea of how skills are built. We developed some initial intents separately, and then combined them into a single python file. 
 
-From here we used a personal git hub repository to make sure the most up to date, working version of the python and JSON code was available.
+From this point on we used a personal git hub repository to make sure the most relevant, working version of the python and JSON code was available.
 
-We initially developed intents separately because Luke was using java 8 and Jakir was using python. Python was decided upon as the common language because of its ease of learning. Additionally, there is a lot more support for python alexa skills as apposed to java 8.
+We initially developed intents separately because Luke was using java 8 and Jakir and Alex were using python. Python was decided upon as the common language because of how easy it was to learn. Additionally, there is a lot more support for Alexa skills developed in python as apposed to java 8.
 
 
 # Meeting on 26/07/2018
 
-This was our first major discussion about the use of the skill.
+This was our first major discussion about the direction our development should take.
 
 At this point we had a working prototype. We discussed 3 separate routes to go down to make user interaction easier:
 
-
-1)	Use Tech Hub as the invocation name. This avoids using a secondary name for invocation such as assistant or helper. However, the downside is that not all intents flow well if the invocation name has to be used before the intent utterance. IE ‘ask the tech hub to tell me about the tech hub’.
+1)	Use 'tech hub' as the invocation name. This avoids using a secondary name for invocation such as assistant or helper. However, the downside is that not all intents flow well if the invocation name has to be used before the intent utterance. IE ‘ask the tech hub to tell me about the tech hub’.
 
 Solution: upon further investigation, we found that the invocation name can be spoke after the intent utterance. IE ‘tell me about the Tech Hub’.We decided that this was the most intuitive of the three solutions and so continued down this route. However at first we only found limited success upon testing this solution. 
 
