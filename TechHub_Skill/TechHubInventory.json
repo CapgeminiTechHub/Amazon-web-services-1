@@ -10,6 +10,7 @@
                 {
                     "name": "AMAZON.CancelIntent",
                     "samples": [
+                        "goodbye",
                         "bye",
                         "thank you",
                         "close session",
@@ -31,22 +32,11 @@
                     "name": "TechHubExplainedIntent",
                     "slots": [],
                     "samples": [
-                        "tell me about this room",
-                        "about this place",
-                        "about this area",
-                        "what can i do here",
-                        "what is the tech hub for",
-                        "tell me about the tech hub area",
-                        "tell me about this area",
-                        "what can you do in here",
-                        "what can i do in here",
-                        "what can you do in the tech hub",
-                        "tell me about the tech hub",
-                        "tell me about this place",
-                        "what goes on in this room",
-                        "what is this room",
-                        "what is this place",
-                        "what is the tech hub"
+                        "details",
+                        "more details about itself",
+                        "more details about the tech hub",
+                        "more details",
+                        "for more details"
                     ]
                 },
                 {
@@ -238,93 +228,62 @@
                     "values": [
                         {
                             "name": {
-                                "value": "laptop",
-                                "synonyms": [
-                                    "windows machine",
-                                    "think pad",
-                                    "lenovo",
-                                    "computer",
-                                    "pc",
-                                    "portable computer"
-                                ]
+                                "value": "pens"
                             }
                         },
                         {
                             "name": {
-                                "value": "batteries",
-                                "synonyms": [
-                                    "battery"
-                                ]
+                                "value": "post-it notes"
                             }
                         },
                         {
                             "name": {
-                                "value": "desks",
-                                "synonyms": [
-                                    "desk"
-                                ]
+                                "value": "chromecasts"
                             }
                         },
                         {
                             "name": {
-                                "value": "mice",
-                                "synonyms": [
-                                    "computer mice",
-                                    "computer mouse",
-                                    "mouse"
-                                ]
+                                "value": "taggers"
                             }
                         },
                         {
                             "name": {
-                                "value": "keyboards",
-                                "synonyms": [
-                                    "keyboard"
-                                ]
+                                "value": "echo dots"
                             }
                         },
                         {
                             "name": {
-                                "value": "monitors",
-                                "synonyms": [
-                                    "display",
-                                    "screens",
-                                    "monitor",
-                                    "screen"
-                                ]
+                                "value": "laptops"
                             }
                         },
                         {
                             "name": {
-                                "value": "chargers",
-                                "synonyms": [
-                                    "charging station",
-                                    "power supply",
-                                    "charging lead",
-                                    "charger"
-                                ]
+                                "value": "mice"
                             }
                         },
                         {
                             "name": {
-                                "value": "raspberry pies",
-                                "synonyms": [
-                                    "raspbian computer",
-                                    "raspbian machine",
-                                    "raspbian",
-                                    "raspberry pie"
-                                ]
+                                "value": "keyboards"
                             }
                         },
                         {
                             "name": {
-                                "value": "mind storms set",
-                                "synonyms": [
-                                    "mind storms",
-                                    "lego",
-                                    "mind storm",
-                                    "lego set"
-                                ]
+                                "value": "monitors"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chargers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raspberry pies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "t-shirts"
                             }
                         }
                     ]
