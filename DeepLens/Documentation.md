@@ -5,7 +5,7 @@ This file will document our progress through building this skill in hope that we
 
 Note, the login details for the DeepLens device is:
 Username = Deepcam
-Password = TechHub99#
+Password = TechHub99*
 
 The device should not need to be re-registered but you may need to redownload the streaming certificate to your local machine and attach it to the browser.
 
